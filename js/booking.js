@@ -16,7 +16,7 @@ document.addEventListener("DOMContentLoaded", () => {
     Configuration
     ==============================================*/
 
-    const WHATSAPP_NUMBER = "923001234567";
+    const WHATSAPP_NUMBER = "+923029468953";
 
     /*==============================================
     Form
