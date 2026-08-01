@@ -528,71 +528,69 @@ window.addEventListener("scroll", () => {
     }
 
 });
-/*==============================================
-Dark Mode
-==============================================*/
+// ==============================
+// Dark Mode Toggle
+// ==============================
 
-const darkModeToggle = document.getElementById("darkModeToggle");
+const darkToggle = document.getElementById("theme-toggle");
 
-function applyTheme(theme) {
 
-    if (theme === "dark") {
+if(darkToggle){
 
-        document.body.classList.add("dark-mode");
+    darkToggle.addEventListener("click",()=>{
 
-        if (darkModeToggle) {
 
-            darkModeToggle.innerHTML =
-                '<i class="fa-solid fa-sun"></i>';
+        document.body.classList.toggle("dark-mode");
 
-            darkModeToggle.setAttribute(
-                "aria-label",
-                "Switch to light mode"
-            );
 
-        }
+        const icon = darkToggle.querySelector("i");
 
-    } else {
 
-        document.body.classList.remove("dark-mode");
+        if(document.body.classList.contains("dark-mode")){
 
-        if (darkModeToggle) {
+            icon.classList.remove("fa-moon");
+            icon.classList.add("fa-sun");
 
-            darkModeToggle.innerHTML =
-                '<i class="fa-solid fa-moon"></i>';
 
-            darkModeToggle.setAttribute(
-                "aria-label",
-                "Switch to dark mode"
-            );
+            localStorage.setItem("darkMode","enabled");
+
+
+        }else{
+
+
+            icon.classList.remove("fa-sun");
+            icon.classList.add("fa-moon");
+
+
+            localStorage.setItem("darkMode","disabled");
 
         }
+
+
+    });
+
+
+}
+
+
+// Load saved mode
+
+if(localStorage.getItem("darkMode") === "enabled"){
+
+    document.body.classList.add("dark-mode");
+
+
+    const icon = document.querySelector("#darkModeToggle i");
+
+
+    if(icon){
+
+        icon.classList.remove("fa-moon");
+        icon.classList.add("fa-sun");
 
     }
 
 }
-
-const savedTheme = localStorage.getItem("theme") || "light";
-
-applyTheme(savedTheme);
-
-if (darkModeToggle) {
-
-    darkModeToggle.addEventListener("click", () => {
-
-        const nextTheme =
-            document.body.classList.contains("dark-mode")
-                ? "light"
-                : "dark";
-
-        applyTheme(nextTheme);
-
-        localStorage.setItem("theme", nextTheme);
-
-    });
-
-}
-
 
 /*==============================================
 Image Fallback

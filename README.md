@@ -1,4 +1,4 @@
-```md
+  md
 # 🐾 Dr. Fahim Pet Clinic Website
 
 A modern, premium, fully responsive veterinary clinic website built using **HTML5, CSS3, and Vanilla JavaScript**.
@@ -71,7 +71,7 @@ This project does NOT use:
 
 # 📂 Project Structure
 
-```
+  
 
 Dr-Fahim-Pet-Clinic/
 
@@ -103,7 +103,7 @@ Dr-Fahim-Pet-Clinic/
 │
 └── README.md
 
-```
+  
 
 ---
 
@@ -138,43 +138,43 @@ No information is stored.
 
 Open:
 
-```
+  
 
 contact.html
 
-```
+  
 
 Search:
 
-```
+  
 
 +92 300 1234567
 
-```
+  
 
 Replace it with your clinic number.
 
 Also update:
 
-```
+  
 
 js/booking.js
 
-````
+  `
 
 Find:
 
-```javascript
+  javascript
 const whatsappNumber = "923001234567";
-````
+  `
 
 Replace with your WhatsApp number.
 
 Example:
 
-```javascript
+  javascript
 const whatsappNumber = "923111234567";
-```
+  
 
 Important:
 
@@ -188,15 +188,15 @@ Important:
 
 Open:
 
-```
+  
 js/booking.js
-```
+  
 
 Find:
 
-```javascript
+  javascript
 const whatsappNumber
-```
+  
 
 Replace the number.
 
@@ -204,9 +204,9 @@ Example:
 
 Pakistan:
 
-```
+  
 923001234567
-```
+  
 
 ---
 
@@ -214,9 +214,9 @@ Pakistan:
 
 All images are located inside:
 
-```
+  
 assets/images/
-```
+  
 
 Replace images while keeping the same names.
 
@@ -224,15 +224,15 @@ Example:
 
 Current:
 
-```
+  
 assets/images/about-hero.png
-```
+  
 
 Replace with your own:
 
-```
+  
 assets/images/about-hero.png
-```
+  
 
 Recommended:
 
@@ -246,16 +246,16 @@ Recommended:
 
 Logo files are located:
 
-```
+  
 assets/logo/
-```
+  
 
 Replace:
 
-```
+  
 logo.png
 favicon.png
-```
+  
 
 Keep the same filenames.
 
@@ -265,13 +265,13 @@ Keep the same filenames.
 
 Open:
 
-```
+  
 css/style.css
-```
+  
 
 Find:
 
-```css
+  css
 :root {
 
 --primary-blue:#2563EB;
@@ -287,15 +287,15 @@ Find:
 --white:#FFFFFF;
 
 }
-```
+  
 
 Change these values to customize the theme.
 
 Example:
 
-```css
+  css
 --primary-blue:#1D4ED8;
-```
+  
 
 ---
 
@@ -303,19 +303,19 @@ Example:
 
 Open:
 
-```
+  
 services.html
-```
+  
 
 Find service cards.
 
 Example:
 
-```html
+  html
 <h3>
 Vaccination
 </h3>
-```
+  
 
 Change:
 
@@ -325,9 +325,9 @@ Change:
 
 Font Awesome icons can be changed here:
 
-```html
+  html
 <i class="fa-solid fa-syringe"></i>
-```
+  
 
 Browse icons:
 
@@ -339,9 +339,9 @@ https://fontawesome.com/icons
 
 Update:
 
-```
+  
 contact.html
-```
+  
 
 Change:
 
@@ -353,13 +353,13 @@ Change:
 
 Also update footer information in:
 
-```
+  
 index.html
 about.html
 services.html
 gallery.html
 contact.html
-```
+  
 
 ---
 
@@ -371,9 +371,9 @@ Create a GitHub repository:
 
 Example:
 
-```
+  
 Dr-Fahim-Pet-Clinic
-```
+  
 
 ---
 
@@ -383,12 +383,12 @@ Upload all project files.
 
 Your repository should contain:
 
-```
+  
 index.html
 css/
 js/
 assets/
-```
+  
 
 ---
 
@@ -396,33 +396,33 @@ assets/
 
 Open:
 
-```
+  
 Repository Settings
-```
+  
 
 Go to:
 
-```
+  
 Pages
-```
+  
 
 Select:
 
-```
+  
 Deploy from branch
-```
+  
 
 Choose:
 
-```
+  
 main
-```
+  
 
 Folder:
 
-```
+  
 /root
-```
+  
 
 Save.
 
@@ -434,9 +434,9 @@ GitHub will generate your website link:
 
 Example:
 
-```
+  
 https://username.github.io/Dr-Fahim-Pet-Clinic/
-```
+  
 
 ---
 
@@ -482,5 +482,5 @@ JavaScript
 
 For professional veterinary healthcare services.
 
-```
-```
+  
+  

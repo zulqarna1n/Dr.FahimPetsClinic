@@ -54,34 +54,77 @@ CSS Variables
 }
 
 
-/*==================================================
-Dark Theme Variables
-==================================================*/
+/* ==============================
+   Dark Mode
+============================== */
 
-body.dark-mode{
+body.dark-mode {
 
-    --background:#07111F;
+    background:#0f172a;
+    /*color:#f8fafc;*/
+}
 
-    --white:#101B2E;
 
-    --dark:#F8FAFC;
+/* Sections */
 
-    --text:#CBD5E1;
+body.dark-mode section {
 
-    --border:#243247;
-
-    --shadow-sm:
-        0 5px 15px rgba(0,0,0,.40);
-
-    --shadow:
-        0 20px 40px rgba(0,0,0,.40);
-
-    --shadow-lg:
-        0 30px 70px rgba(0,0,0,.55);
+    background:#0f172a;
 
 }
 
 
+body.dark-mode .service-card,
+body.dark-mode .feature-card,
+body.dark-mode .gallery-card,
+body.dark-mode .process-card,
+body.dark-mode .faq-item {
+
+    background:#1e293b;
+    color:#f8fafc;
+
+}
+
+
+body.dark-mode h1,
+body.dark-mode h2,
+body.dark-mode h3 {
+
+    color:#f8fafc;
+
+}
+
+
+body.dark-mode p {
+
+    color:#cbd5e1;
+
+}
+
+
+/* Navbar */
+
+body.dark-mode header {
+
+    background:rgba(15,23,42,0.9);
+
+}
+
+
+body.dark-mode .nav-links a {
+
+    color:#f8fafc;
+
+}
+
+
+/* Footer */
+
+body.dark-mode footer {
+
+    background:#020617;
+
+}
 /*==================================================
 Reset
 ==================================================*/
