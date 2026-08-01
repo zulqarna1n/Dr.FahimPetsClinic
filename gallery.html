@@ -1,0 +1,1106 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <!-- ==========================================
+         Basic Meta
+    =========================================== -->
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Gallery | Dr. Fahim Pet Clinic</title>
+
+    <meta name="description"
+          content="Browse our gallery featuring happy patients, modern veterinary facilities, surgeries, grooming, and compassionate pet care at Dr. Fahim Pet Clinic.">
+
+    <meta name="keywords"
+          content="Pet Gallery, Veterinary Clinic, Dr Fahim Pet Clinic, Dogs, Cats, Birds, Peshawar">
+
+    <meta name="author"
+          content="Dr. Fahim Pet Clinic">
+
+    <meta name="robots"
+          content="index,follow">
+
+    <!-- Open Graph -->
+
+    <meta property="og:type"
+          content="website">
+
+    <meta property="og:title"
+          content="Gallery | Dr. Fahim Pet Clinic">
+
+    <meta property="og:description"
+          content="Take a look inside our clinic and meet some of our wonderful patients.">
+
+    <meta property="og:image"
+          content="assets/logo/og-image.jpg">
+
+    <meta property="og:url"
+          content="https://YOUR_USERNAME.github.io/Dr-Fahim-Pet-Clinic/">
+
+    <!-- Twitter -->
+
+    <meta name="twitter:card"
+          content="summary_large_image">
+
+    <!-- Favicon -->
+
+    <link rel="icon"
+          href="assets/logo/favicon.png"
+          type="image/png">
+
+    <!-- Google Fonts -->
+
+    <link rel="preconnect"
+          href="https://fonts.googleapis.com">
+
+    <link rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+          rel="stylesheet">
+
+    <!-- Font Awesome -->
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+    <!-- CSS -->
+
+    <link rel="stylesheet"
+          href="css/style.css">
+
+    <link rel="stylesheet"
+          href="css/animations.css">
+
+    <link rel="stylesheet"
+          href="css/responsive.css">
+
+</head>
+
+<body>
+
+    <!-- ==========================================
+         Header
+    =========================================== -->
+
+    <header id="header">
+
+        <nav class="navbar container">
+
+            <a href="index.html"
+               class="logo"
+               aria-label="Dr. Fahim Pet Clinic Home">
+
+                <img src="assets/logo/logo.png"
+                     alt="Dr. Fahim Pet Clinic Logo">
+
+                <span>Dr. Fahim Pet Clinic</span>
+
+            </a>
+
+            <ul class="nav-links">
+
+                <li><a href="index.html">Home</a></li>
+
+                <li><a href="about.html">About</a></li>
+
+                <li><a href="services.html">Services</a></li>
+
+                <li><a href="gallery.html" class="active">Gallery</a></li>
+
+                <li><a href="contact.html">Contact</a></li>
+
+                <li>
+
+                    <a href="contact.html#appointmentForm"
+                       class="btn-nav">
+
+                        Book Appointment
+
+                    </a>
+
+                </li>
+
+            </ul>
+
+            <button id="darkModeToggle"
+                    class="theme-toggle"
+                    aria-label="Toggle Dark Mode">
+
+                <i class="fa-solid fa-moon"></i>
+
+            </button>
+
+            <button class="hamburger"
+                    aria-label="Open Navigation">
+
+                <span></span>
+                <span></span>
+                <span></span>
+
+            </button>
+
+        </nav>
+
+    </header>
+
+    <!-- ==========================================
+         Hero Section
+    =========================================== -->
+
+    <main>
+
+        <section class="hero">
+
+            <div class="container hero-container">
+
+                <div class="hero-content reveal">
+
+                    <span class="hero-tag">
+
+                        📸 Our Gallery
+
+                    </span>
+
+                    <h1>
+
+                        Every Picture
+
+                        <br>
+
+                        Tells a Story
+
+                    </h1>
+
+                    <p>
+
+                        Explore our gallery showcasing happy patients,
+                        compassionate veterinary care, modern facilities,
+                        successful treatments, and memorable moments with
+                        the pets we proudly serve.
+
+                    </p>
+
+                    <div class="hero-buttons">
+
+                        <a href="#gallery"
+                           class="btn-primary">
+
+                            <i class="fa-solid fa-images"></i>
+
+                            View Gallery
+
+                        </a>
+
+                        <a href="contact.html#appointmentForm"
+                           class="btn-secondary">
+
+                            <i class="fa-solid fa-calendar-check"></i>
+
+                            Book Appointment
+
+                        </a>
+
+                    </div>
+
+                </div>
+
+                <div class="hero-image reveal">
+
+                    <img src="assets/images/gallery-hero.png"
+                         alt="Happy pets at Dr. Fahim Pet Clinic"
+                         loading="lazy">
+
+                </div>
+
+            </div>
+
+        </section>
+```
+```html
+        <!-- ==========================================
+             Gallery Section
+        =========================================== -->
+
+        <section id="gallery" class="gallery">
+
+            <div class="container">
+
+                <div class="section-title reveal">
+
+                    <h2>Our Veterinary Gallery</h2>
+
+                    <p>
+
+                        Browse moments from our clinic, meet our happy patients,
+                        and explore our modern veterinary facilities.
+
+                    </p>
+
+                </div>
+
+                <!-- ==========================
+                     Filter Buttons
+                =========================== -->
+
+                <div class="gallery-filter reveal">
+
+                    <button class="filter-btn active"
+                            data-filter="all">
+
+                        All
+
+                    </button>
+
+                    <button class="filter-btn"
+                            data-filter="dogs">
+
+                        Dogs
+
+                    </button>
+
+                    <button class="filter-btn"
+                            data-filter="cats">
+
+                        Cats
+
+                    </button>
+
+                    <button class="filter-btn"
+                            data-filter="birds">
+
+                        Birds
+
+                    </button>
+
+                    <button class="filter-btn"
+                            data-filter="clinic">
+
+                        Clinic
+
+                    </button>
+
+                </div>
+
+                <!-- ==========================
+                     Gallery Grid
+                =========================== -->
+
+                <div class="gallery-grid">
+
+                    <!-- DOG 1 -->
+
+                    <article class="gallery-card reveal"
+                             data-category="dogs">
+
+                        <img src="assets/images/gallery/dog-1.jpg"
+                             alt="Healthy dog after veterinary checkup"
+                             loading="lazy">
+
+                        <div class="gallery-overlay">
+
+                            <h3>Healthy Checkup</h3>
+
+                            <p>Dog Patient</p>
+
+                            <i class="fa-solid fa-expand"></i>
+
+                        </div>
+
+                    </article>
+
+                    <!-- DOG 2 -->
+
+                    <article class="gallery-card reveal"
+                             data-category="dogs">
+
+                        <img src="assets/images/gallery/dog-2.jpg"
+                             alt="Golden Retriever"
+                             loading="lazy">
+
+                        <div class="gallery-overlay">
+
+                            <h3>Vaccination Visit</h3>
+
+                            <p>Golden Retriever</p>
+
+                            <i class="fa-solid fa-expand"></i>
+
+                        </div>
+
+                    </article>
+
+                    <!-- CAT 1 -->
+
+                    <article class="gallery-card reveal"
+                             data-category="cats">
+
+                        <img src="assets/images/gallery/cat-1.jpg"
+                             alt="Cat examination"
+                             loading="lazy">
+
+                        <div class="gallery-overlay">
+
+                            <h3>Routine Examination</h3>
+
+                            <p>Cat Patient</p>
+
+                            <i class="fa-solid fa-expand"></i>
+
+                        </div>
+
+                    </article>
+
+                    <!-- CAT 2 -->
+
+                    <article class="gallery-card reveal"
+                             data-category="cats">
+
+                        <img src="assets/images/gallery/cat-2.jpg"
+                             alt="Happy cat"
+                             loading="lazy">
+
+                        <div class="gallery-overlay">
+
+                            <h3>Recovery</h3>
+
+                            <p>Healthy Cat</p>
+
+                            <i class="fa-solid fa-expand"></i>
+
+                        </div>
+
+                    </article>
+
+                    <!-- BIRD 1 -->
+
+                    <article class="gallery-card reveal"
+                             data-category="birds">
+
+                        <img src="assets/images/gallery/bird-1.jpg"
+                             alt="Pet bird treatment"
+                             loading="lazy">
+
+                        <div class="gallery-overlay">
+
+                            <h3>Bird Consultation</h3>
+
+                            <p>Avian Care</p>
+
+                            <i class="fa-solid fa-expand"></i>
+
+                        </div>
+
+                    </article>
+
+                    <!-- BIRD 2 -->
+
+                    <article class="gallery-card reveal"
+                             data-category="birds">
+
+                        <img src="assets/images/gallery/bird-2.jpg"
+                             alt="Parrot examination"
+                             loading="lazy">
+
+                        <div class="gallery-overlay">
+
+                            <h3>Parrot Checkup</h3>
+
+                            <p>Healthy Bird</p>
+
+                            <i class="fa-solid fa-expand"></i>
+
+                        </div>
+
+                    </article>
+
+                    <!-- CLINIC 1 -->
+
+                    <article class="gallery-card reveal"
+                             data-category="clinic">
+
+                        <img src="assets/images/gallery/clinic-1.jpg"
+                             alt="Reception area"
+                             loading="lazy">
+
+                        <div class="gallery-overlay">
+
+                            <h3>Reception</h3>
+
+                            <p>Modern Waiting Area</p>
+
+                            <i class="fa-solid fa-expand"></i>
+
+                        </div>
+
+                    </article>
+
+                    <!-- CLINIC 2 -->
+
+                    <article class="gallery-card reveal"
+                             data-category="clinic">
+
+                        <img src="assets/images/gallery/clinic-2.jpg"
+                             alt="Veterinary consultation room"
+                             loading="lazy">
+
+                        <div class="gallery-overlay">
+
+                            <h3>Consultation Room</h3>
+
+                            <p>Modern Equipment</p>
+
+                            <i class="fa-solid fa-expand"></i>
+
+                        </div>
+
+                    </article>
+
+                </div>
+
+            </div>
+
+        </section>
+```
+```html id="m3h8pz"
+        <!-- ==========================================
+             Featured Moments
+        =========================================== -->
+
+        <section class="about-section">
+
+            <div class="container">
+
+                <div class="section-title reveal">
+
+                    <h2>Featured Moments</h2>
+
+                    <p>
+
+                        A collection of special moments showing our dedication
+                        towards animal health and happiness.
+
+                    </p>
+
+                </div>
+
+
+                <div class="about-grid">
+
+                    <div class="about-image reveal">
+
+                        <img src="assets/images/gallery/featured-care.jpg"
+                             alt="Veterinarian caring for a pet"
+                             loading="lazy">
+
+                    </div>
+
+
+                    <div class="about-content reveal">
+
+                        <span class="section-tag">
+
+                            Compassionate Care
+
+                        </span>
+
+                        <h2>
+
+                            More Than A Clinic
+
+                        </h2>
+
+                        <p>
+
+                            We believe veterinary medicine is not only about
+                            treating illnesses. It is about creating trust,
+                            comfort, and lifelong relationships between pets,
+                            owners, and their caregivers.
+
+                        </p>
+
+                        <p>
+
+                            Every examination, procedure, and interaction is
+                            performed with patience and genuine care to ensure
+                            your pet receives the best possible experience.
+
+                        </p>
+
+
+                        <a href="contact.html#appointmentForm"
+                           class="btn-primary">
+
+                            <i class="fa-solid fa-calendar-check"></i>
+
+                            Visit Our Clinic
+
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ==========================================
+             Happy Patients
+        =========================================== -->
+
+        <section class="patients">
+
+            <div class="container">
+
+
+                <div class="section-title reveal">
+
+                    <h2>
+
+                        Our Happy Patients
+
+                    </h2>
+
+                    <p>
+
+                        Meet some of the wonderful pets who received care,
+                        treatment, and love at our clinic.
+
+                    </p>
+
+                </div>
+
+
+                <div class="gallery-grid">
+
+
+                    <article class="gallery-card reveal">
+
+                        <img src="assets/images/gallery/patient-1.jpg"
+                             alt="Happy dog patient"
+                             loading="lazy">
+
+
+                        <div class="gallery-overlay">
+
+                            <h3>
+
+                                Max
+
+                            </h3>
+
+                            <p>
+
+                                Regular Health Check
+
+                            </p>
+
+                            <i class="fa-solid fa-paw"></i>
+
+                        </div>
+
+                    </article>
+
+
+                    <article class="gallery-card reveal">
+
+                        <img src="assets/images/gallery/patient-2.jpg"
+                             alt="Happy cat patient"
+                             loading="lazy">
+
+
+                        <div class="gallery-overlay">
+
+                            <h3>
+
+                                Luna
+
+                            </h3>
+
+                            <p>
+
+                                Recovery Care
+
+                            </p>
+
+                            <i class="fa-solid fa-paw"></i>
+
+                        </div>
+
+                    </article>
+
+
+                    <article class="gallery-card reveal">
+
+                        <img src="assets/images/gallery/patient-3.jpg"
+                             alt="Pet bird patient"
+                             loading="lazy">
+
+
+                        <div class="gallery-overlay">
+
+                            <h3>
+
+                                Coco
+
+                            </h3>
+
+                            <p>
+
+                                Avian Consultation
+
+                            </p>
+
+                            <i class="fa-solid fa-paw"></i>
+
+                        </div>
+
+                    </article>
+
+
+                    <article class="gallery-card reveal">
+
+                        <img src="assets/images/gallery/patient-4.jpg"
+                             alt="Pet receiving care"
+                             loading="lazy">
+
+
+                        <div class="gallery-overlay">
+
+                            <h3>
+
+                                Bella
+
+                            </h3>
+
+                            <p>
+
+                                Preventive Care
+
+                            </p>
+
+                            <i class="fa-solid fa-paw"></i>
+
+                        </div>
+
+                    </article>
+
+
+                </div>
+
+
+            </div>
+
+        </section>
+
+
+        <!-- ==========================================
+             CTA Section
+        =========================================== -->
+
+        <section class="cta">
+
+
+            <div class="container cta-container">
+
+
+                <div class="cta-content reveal">
+
+
+                    <h2>
+
+                        Give Your Pet The Care They Deserve
+
+                    </h2>
+
+
+                    <p>
+
+                        Schedule an appointment today and experience
+                        professional, compassionate veterinary care.
+
+                    </p>
+
+
+                </div>
+
+
+                <div class="cta-buttons reveal">
+
+
+                    <a href="contact.html#appointmentForm"
+                       class="btn-primary">
+
+
+                        <i class="fa-solid fa-calendar-check"></i>
+
+
+                        Book Appointment
+
+
+                    </a>
+
+
+                    <a href="contact.html"
+                       class="btn-secondary">
+
+
+                        <i class="fa-solid fa-location-dot"></i>
+
+
+                        Visit Clinic
+
+
+                    </a>
+
+
+                </div>
+
+
+            </div>
+
+
+        </section>
+```
+```html id="hpkz5r"
+    </main>
+
+
+    <!-- ==========================================
+         Footer
+    =========================================== -->
+
+    <footer>
+
+        <div class="container">
+
+            <div class="footer-grid">
+
+
+                <!-- Clinic Info -->
+
+                <div>
+
+                    <img src="assets/logo/logo.png"
+                         class="footer-logo"
+                         alt="Dr. Fahim Pet Clinic Logo">
+
+
+                    <p>
+
+                        Dr. Fahim Pet Clinic provides professional,
+                        compassionate, and modern veterinary healthcare for
+                        pets while building lasting relationships with
+                        families.
+
+                    </p>
+
+
+                </div>
+
+
+
+                <!-- Quick Links -->
+
+                <div>
+
+                    <h3>
+
+                        Quick Links
+
+                    </h3>
+
+
+                    <ul>
+
+                        <li>
+
+                            <a href="index.html">
+
+                                Home
+
+                            </a>
+
+                        </li>
+
+
+                        <li>
+
+                            <a href="about.html">
+
+                                About
+
+                            </a>
+
+                        </li>
+
+
+                        <li>
+
+                            <a href="services.html">
+
+                                Services
+
+                            </a>
+
+                        </li>
+
+
+                        <li>
+
+                            <a href="gallery.html">
+
+                                Gallery
+
+                            </a>
+
+                        </li>
+
+
+                        <li>
+
+                            <a href="contact.html">
+
+                                Contact
+
+                            </a>
+
+                        </li>
+
+
+                    </ul>
+
+
+                </div>
+
+
+
+                <!-- Services -->
+
+                <div>
+
+
+                    <h3>
+
+                        Services
+
+                    </h3>
+
+
+                    <ul>
+
+                        <li>General Checkup</li>
+
+                        <li>Vaccination</li>
+
+                        <li>Surgery</li>
+
+                        <li>Dental Care</li>
+
+                        <li>Grooming</li>
+
+                        <li>Emergency Care</li>
+
+
+                    </ul>
+
+
+                </div>
+
+
+
+                <!-- Contact -->
+
+                <div>
+
+
+                    <h3>
+
+                        Contact
+
+                    </h3>
+
+
+                    <ul>
+
+
+                        <li>
+
+                            <i class="fa-solid fa-phone"></i>
+
+                            +92 300 1234567
+
+                        </li>
+
+
+                        <li>
+
+                            <i class="fa-brands fa-whatsapp"></i>
+
+                            +92 300 1234567
+
+                        </li>
+
+
+                        <li>
+
+                            <i class="fa-solid fa-envelope"></i>
+
+                            info@drfahimpetclinic.com
+
+                        </li>
+
+
+                        <li>
+
+                            <i class="fa-solid fa-location-dot"></i>
+
+                            Peshawar,
+                            Pakistan
+
+                        </li>
+
+
+                    </ul>
+
+
+
+                    <div class="social-links">
+
+
+                        <a href="#"
+                           aria-label="Facebook">
+
+                            <i class="fab fa-facebook-f"></i>
+
+                        </a>
+
+
+                        <a href="#"
+                           aria-label="Instagram">
+
+                            <i class="fab fa-instagram"></i>
+
+                        </a>
+
+
+                        <a href="#"
+                           aria-label="WhatsApp">
+
+                            <i class="fab fa-whatsapp"></i>
+
+                        </a>
+
+
+                    </div>
+
+
+                </div>
+
+
+            </div>
+
+
+
+            <div class="footer-bottom">
+
+
+                <p>
+
+
+                    &copy;
+
+                    <span id="currentYear"></span>
+
+
+                    Dr. Fahim Pet Clinic.
+
+                    All Rights Reserved.
+
+
+                </p>
+
+
+            </div>
+
+
+        </div>
+
+
+    </footer>
+
+
+
+    <!-- ==========================================
+         Scroll To Top
+    =========================================== -->
+
+
+    <button id="scrollTopBtn"
+            aria-label="Scroll to top">
+
+
+        <i class="fa-solid fa-arrow-up"></i>
+
+
+    </button>
+
+
+
+    <!-- ==========================================
+         Lightbox Container
+         Controlled By JavaScript
+    =========================================== -->
+
+
+    <div id="lightbox"
+         class="lightbox"
+         aria-hidden="true">
+
+
+        <button id="closeLightbox"
+                aria-label="Close Image Preview">
+
+
+            <i class="fa-solid fa-xmark"></i>
+
+
+        </button>
+
+
+        <img id="lightboxImage"
+             src=""
+             alt="Gallery Preview">
+
+
+    </div>
+
+
+
+    <!-- ==========================================
+         JavaScript
+    =========================================== -->
+
+
+    <script src="js/script.js"></script>
+
+    <script src="js/slider.js"></script>
+
+    <script src="js/booking.js"></script>
+
+
+</body>
+
+
+</html>
+```

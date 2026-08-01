@@ -1,0 +1,535 @@
+/*==================================================
+Dr. Fahim Pet Clinic
+animations.css
+Premium Animation Library
+==================================================*/
+
+
+/*==================================================
+Global Animation Utilities
+==================================================*/
+
+.animate-fade{
+    animation:fadeIn .8s ease forwards;
+}
+
+.animate-up{
+    animation:slideUp .8s ease forwards;
+}
+
+.animate-left{
+    animation:slideLeft .8s ease forwards;
+}
+
+.animate-right{
+    animation:slideRight .8s ease forwards;
+}
+
+.animate-zoom{
+    animation:zoomIn .8s ease forwards;
+}
+
+.animate-bounce{
+    animation:bounce 2s infinite;
+}
+
+.animate-float{
+    animation:float 5s ease-in-out infinite;
+}
+
+.animate-pulse{
+    animation:pulseCircle 4s infinite;
+}
+
+.animate-rotate{
+    animation:rotateSlow 18s linear infinite;
+}
+
+
+/*==================================================
+Reveal Animation
+==================================================*/
+
+.reveal{
+
+    opacity:0;
+
+    transform:translateY(70px);
+
+    transition:
+        opacity .8s ease,
+        transform .8s ease;
+
+}
+
+.reveal.active{
+
+    opacity:1;
+
+    transform:translateY(0);
+
+}
+
+
+/*==================================================
+Fade In
+==================================================*/
+
+@keyframes fadeIn{
+
+    from{
+
+        opacity:0;
+
+    }
+
+    to{
+
+        opacity:1;
+
+    }
+
+}
+
+
+/*==================================================
+Slide Up
+==================================================*/
+
+@keyframes slideUp{
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(60px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0);
+
+    }
+
+}
+
+
+/*==================================================
+Slide Left
+==================================================*/
+
+@keyframes slideLeft{
+
+    from{
+
+        opacity:0;
+
+        transform:translateX(-70px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:translateX(0);
+
+    }
+
+}
+
+
+/*==================================================
+Slide Right
+==================================================*/
+
+@keyframes slideRight{
+
+    from{
+
+        opacity:0;
+
+        transform:translateX(70px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:translateX(0);
+
+    }
+
+}
+
+
+/*==================================================
+Zoom In
+==================================================*/
+
+@keyframes zoomIn{
+
+    from{
+
+        opacity:0;
+
+        transform:scale(.8);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:scale(1);
+
+    }
+
+}
+
+
+/*==================================================
+Floating Animation
+==================================================*/
+
+@keyframes float{
+
+    0%{
+
+        transform:translateY(0px);
+
+    }
+
+    50%{
+
+        transform:translateY(-18px);
+
+    }
+
+    100%{
+
+        transform:translateY(0);
+
+    }
+
+}
+
+
+/*==================================================
+Pulse Circle
+==================================================*/
+
+@keyframes pulseCircle{
+
+    0%{
+
+        transform:scale(1);
+
+        opacity:.6;
+
+    }
+
+    50%{
+
+        transform:scale(1.15);
+
+        opacity:1;
+
+    }
+
+    100%{
+
+        transform:scale(1);
+
+        opacity:.6;
+
+    }
+
+}
+
+
+/*==================================================
+Slow Rotation
+==================================================*/
+
+@keyframes rotateSlow{
+
+    from{
+
+        transform:rotate(0deg);
+
+    }
+
+    to{
+
+        transform:rotate(360deg);
+
+    }
+
+}
+
+
+/*==================================================
+Bounce
+==================================================*/
+
+@keyframes bounce{
+
+    0%,
+    100%{
+
+        transform:translateY(0);
+
+    }
+
+    50%{
+
+        transform:translateY(-10px);
+
+    }
+
+}
+
+
+/*==================================================
+Button Shine
+==================================================*/
+
+@keyframes shine{
+
+    from{
+
+        left:-100%;
+
+    }
+
+    to{
+
+        left:150%;
+
+    }
+
+}
+
+
+/*==================================================
+Skeleton Loading
+==================================================*/
+
+@keyframes skeleton{
+
+    0%{
+
+        background-position:200% 0;
+
+    }
+
+    100%{
+
+        background-position:-200% 0;
+
+    }
+
+}
+
+
+/*==================================================
+Rotate Icon
+==================================================*/
+
+@keyframes rotateIcon{
+
+    from{
+
+        transform:rotate(0deg);
+
+    }
+
+    to{
+
+        transform:rotate(180deg);
+
+    }
+
+}
+
+
+/*==================================================
+Heart Beat
+==================================================*/
+
+@keyframes heartbeat{
+
+    0%{
+
+        transform:scale(1);
+
+    }
+
+    25%{
+
+        transform:scale(1.08);
+
+    }
+
+    40%{
+
+        transform:scale(1);
+
+    }
+
+    60%{
+
+        transform:scale(1.08);
+
+    }
+
+    100%{
+
+        transform:scale(1);
+
+    }
+
+}
+
+
+/*==================================================
+Ripple Effect
+==================================================*/
+
+@keyframes ripple{
+
+    from{
+
+        transform:scale(.4);
+
+        opacity:.8;
+
+    }
+
+    to{
+
+        transform:scale(2);
+
+        opacity:0;
+
+    }
+
+}
+
+
+/*==================================================
+Glow
+==================================================*/
+
+@keyframes glow{
+
+    0%{
+
+        box-shadow:
+        0 0 0 rgba(37,99,235,0);
+
+    }
+
+    50%{
+
+        box-shadow:
+        0 0 25px rgba(37,99,235,.35);
+
+    }
+
+    100%{
+
+        box-shadow:
+        0 0 0 rgba(37,99,235,0);
+
+    }
+
+}
+
+
+/*==================================================
+Hover Animation Helpers
+==================================================*/
+
+.hover-lift{
+
+    transition:.35s ease;
+
+}
+
+.hover-lift:hover{
+
+    transform:translateY(-8px);
+
+}
+
+.hover-scale{
+
+    transition:.35s ease;
+
+}
+
+.hover-scale:hover{
+
+    transform:scale(1.05);
+
+}
+
+.hover-rotate{
+
+    transition:.35s ease;
+
+}
+
+.hover-rotate:hover{
+
+    transform:rotate(5deg);
+
+}
+
+
+/*==================================================
+Smooth Transition Helpers
+==================================================*/
+
+.transition{
+
+    transition:.35s ease;
+
+}
+
+.transition-fast{
+
+    transition:.2s ease;
+
+}
+
+.transition-slow{
+
+    transition:.6s ease;
+
+}
+
+
+/*==================================================
+Reduced Motion Support
+==================================================*/
+
+@media (prefers-reduced-motion: reduce){
+
+    *{
+
+        animation:none !important;
+
+        transition:none !important;
+
+        scroll-behavior:auto !important;
+
+    }
+
+}
