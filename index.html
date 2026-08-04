@@ -495,155 +495,207 @@
     }
 
     /*==================================================
-      CONTACT SECTION WITH MAP
-    ==================================================*/
-    .contact {
-        background: var(--background);
-    }
+  CONTACT SECTION
+==================================================*/
+.contact {
+    background: var(--background);
+}
 
-    .contact-grid {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 50px;
-        align-items: stretch;
-    }
+/* Contact Details + Map */
+.contact-top {
+    display: grid;
+    grid-template-columns: 380px 1fr;
+    gap: 35px;
+    align-items: stretch;
+    margin-bottom: 35px;
+}
 
-    .contact-info-column {
-        display: flex;
-        flex-direction: column;
-        gap: 25px;
-    }
+/* Left Column */
+.contact-info-column {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
 
-    .contact-card {
-        display: flex;
-        align-items: flex-start;
-        gap: 20px;
-        background: var(--white);
-        padding: 20px 25px;
-        border-radius: var(--radius);
-        box-shadow: var(--shadow-sm);
-    }
+/* Contact Card */
+.contact-card {
+    display: flex;
+    align-items: flex-start;
+    gap: 18px;
+    background: var(--white);
+    padding: 22px;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-sm);
+}
 
-    body.dark-mode .contact-card {
-        background: #231B18;
-    }
+body.dark-mode .contact-card {
+    background: #231B18;
+}
 
-    .contact-card i {
-        font-size: 1.4rem;
-        color: var(--primary);
-        margin-top: 3px;
-    }
-
-    .contact-card h3 {
-        font-size: 1rem;
-        margin-bottom: 4px;
-    }
-
-    .contact-card p {
-        font-size: 0.9rem;
-    }
-
-    /* Small Map Box */
-    .map-box {
-        width: 100%;
-        height: 220px;
-        border-radius: var(--radius);
-        overflow: hidden;
-        box-shadow: var(--shadow-sm);
-        border: 1px solid var(--border);
-    }
-
-    body.dark-mode .map-box {
-        border-color: rgba(255, 255, 255, 0.08);
-    }
-
-    .map-box iframe {
-        width: 100%;
-        height: 100%;
-        border: 0;
-    }
-
-    .contact-form {
-        background: var(--white);
-        padding: 35px 40px;
-        border-radius: var(--radius);
-        box-shadow: var(--shadow-sm);
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-    }
-
-    body.dark-mode .contact-form {
-        background: #231B18;
-    }
-
-    .form-row {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 15px;
-    }
-
-    .form-group {
-        margin-bottom: 18px;
-    }
-
-    .form-group input,
-    .form-group select,
-    .form-group textarea {
-        width: 100%;
-        padding: 14px 18px;
-        border: 1px solid var(--border);
-        border-radius: 12px;
-        background: var(--background);
-        color: var(--dark);
-        font-size: 0.95rem;
-        outline: none;
-        transition: var(--transition);
-    }
-
-    body.dark-mode .form-group input,
-    body.dark-mode .form-group select,
-    body.dark-mode .form-group textarea {
-        background: #181210;
-        border-color: rgba(255, 255, 255, 0.08);
-        color: #FFF3E0;
-    }
-
-    .form-group input:focus,
-    .form-group select:focus,
-    .form-group textarea:focus {
-        border-color: var(--primary);
-        box-shadow: 0 0 0 4px rgba(255, 112, 67, 0.15);
-    }
-
-    .form-group select {
-        cursor: pointer;
-    }
-
-    .form-group textarea {
-        min-height: 90px;
-        resize: vertical;
-    }
-
-    .form-disclaimer {
-        font-size: 0.8rem;
-        color: var(--text);
-        text-align: center;
-        margin-top: 12px;
-        opacity: 0.8;
-    }
-
-    body.dark-mode .form-disclaimer {
-        color: #D7CCC8;
-    }
-.emergency-call {
+.contact-card i {
+    font-size: 1.4rem;
     color: var(--primary);
+    margin-top: 4px;
+}
+
+.contact-card h3 {
+    margin-bottom: 5px;
+    font-size: 1rem;
+}
+
+.contact-card p {
+    color: var(--text);
+    line-height: 1.6;
+}
+
+/* Address & Phone Links */
+.contact-card a {
+    color: inherit;
+    text-decoration: none;
+    transition: var(--transition);
+}
+
+.contact-card a:hover {
+    color: var(--primary);
+    text-decoration: underline;
+}
+
+/* Google Map */
+.map-box {
+    height: 100%;
+    min-height: 320px;
+    overflow: hidden;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    border: 1px solid var(--border);
+}
+
+.map-box iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+/* Emergency Banner */
+.emergency-box {
+    background: #FFF5F5;
+    border-left: 6px solid #E53935;
+    border-radius: var(--radius);
+    padding: 20px 25px;
+    margin-bottom: 35px;
+    text-align: center;
+    font-size: 1rem;
+    font-weight: 600;
+    box-shadow: var(--shadow-sm);
+}
+
+.emergency-box i {
+    color: #E53935;
+    margin-right: 8px;
+}
+
+.emergency-box a {
+    color: #E53935;
     font-weight: 700;
     text-decoration: none;
 }
 
-.emergency-call:hover {
+.emergency-box a:hover {
     text-decoration: underline;
+}
+
+body.dark-mode .emergency-box {
+    background: #2A1B1B;
+    border-left-color: #FF6B6B;
+}
+
+/* Contact Form */
+.contact-form {
+    background: var(--white);
+    padding: 35px 40px;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+}
+
+body.dark-mode .contact-form {
+    background: #231B18;
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 18px;
+}
+
+.form-group {
+    margin-bottom: 18px;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 15px 18px;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    background: var(--background);
+    color: var(--dark);
+    font-size: 0.95rem;
+    outline: none;
+    transition: var(--transition);
+}
+
+.form-group textarea {
+    min-height: 120px;
+    resize: vertical;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    border-color: var(--primary);
+    box-shadow: 0 0 0 4px rgba(255,112,67,.15);
+}
+
+body.dark-mode .form-group input,
+body.dark-mode .form-group select,
+body.dark-mode .form-group textarea {
+    background: #181210;
+    border-color: rgba(255,255,255,.08);
+    color: #FFF3E0;
+}
+
+.form-disclaimer {
+    text-align: center;
+    margin-top: 15px;
+    font-size: .85rem;
+    opacity: .8;
+}
+
+/* Mobile */
+@media (max-width: 900px) {
+
+    .contact-top {
+        grid-template-columns: 1fr;
+    }
+
+    .map-box {
+        min-height: 280px;
+    }
+
+    .form-row {
+        grid-template-columns: 1fr;
+    }
+
+    .contact-form {
+        padding: 25px;
+    }
+
+    .emergency-box {
+        font-size: .95rem;
+        padding: 18px;
+    }
+
 }
     /*==================================================
     SLIM FOOTER
@@ -736,6 +788,16 @@ body.dark-mode .footer-bottom {
     .footer-content p {
         line-height: 1.8;
     }
+}
+.address-link {
+    color: inherit;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.address-link:hover {
+    color: var(--primary);
+    text-decoration: underline;
 }
     /*==================================================
       SCROLL TO TOP BUTTON
@@ -988,126 +1050,163 @@ body.dark-mode .footer-bottom {
     </section>
 
     <!-- Contact & Booking Section -->
-    <section id="contact" class="contact">
-        <div class="container">
-            <div class="section-header">
-                <span class="section-tag">Book An Appointment</span>
-                <h2>Schedule Your Visit via WhatsApp</h2>
-                <p>Complete the form below and we'll prepare your appointment request through WhatsApp instantly.</p>
-            </div>
-            <div class="contact-grid">
-                <div class="contact-info-column">
-                    <div class="contact-card">
-                        <i class="fa-solid fa-location-dot"></i>
-                        <div>
-                            <h3>Location</h3>
-                            <p>Cantt Plaza, Warsak Rd, near Askari 4, Peshawar, Pakistan</p>
-                        </div>
+    <!-- Contact & Booking Section -->
+<section id="contact" class="contact">
+    <div class="container">
+
+        <div class="section-header">
+            <span class="section-tag">Book An Appointment</span>
+            <h2>Schedule Your Visit via WhatsApp</h2>
+            <p>Complete the form below and we'll prepare your appointment request through WhatsApp instantly.</p>
+        </div>
+
+        <!-- Contact Details + Map -->
+        <div class="contact-top">
+
+            <!-- Contact Information -->
+            <div class="contact-info-column">
+
+                <div class="contact-card">
+                    <i class="fa-solid fa-location-dot"></i>
+                    <div>
+                        <h3>Location</h3>
+                        <p>
+                            <a href="https://maps.google.com/?q=34.0181946731699,71.53687867633528"
+                               target="_blank"
+                               rel="noopener noreferrer"
+                               class="address-link">
+                                Cantt Plaza, Warsak Rd, Near Askari 4, Peshawar, Pakistan
+                            </a>
+                        </p>
                     </div>
-                    <div class="contact-card">
-                        <i class="fa-solid fa-phone"></i>
-                        <div>
-                            <h3>Phone Number</h3>
-                            <p>+92 302 9468953</p>
-                        </div>
-                    </div>
-                    <div class="contact-card">
-                        <i class="fa-solid fa-clock"></i>
-                        <div>
-                            <h3>Working Hours</h3>
-                            <p>Mon – Sat : 9:00 AM – 8:00 PM</p>
-                        </div>
-                    </div>
-                    <!-- Small Embedded Map -->
-                   <div class="map-box">
-    <iframe
-        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3952.8991954540784!2d71.53687867633528!3d34.0181946731699!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6d54020c63ea8aab%3A0x3b5713fc2f19c067!2sDr%20Fahim%20Pets%20Clinic!5e1!3m2!1sen!2s!4v1785833171176!5m2!1sen!2s"
-        style="border:0; width:100%; height:100%;"
-        allowfullscreen=""
-        loading="lazy"
-        referrerpolicy="strict-origin-when-cross-origin">
-    </iframe>
-</div>
                 </div>
 
-                <!-- Comprehensive WhatsApp Booking Form -->
-<h2>
-    🚨 If it's a life-threatening emergency, call
-    <a href="tel:+923029468953" class="emergency-call">+92 302 9468953</a>
-    immediately.
-</h2>
-                <form class="contact-form" id="whatsappBookingForm">
-                    <div class="form-row">
-                        <div class="form-group">
-                            <input type="text" id="ownerName" placeholder="Owner Name *" required>
-                        </div>
-                        <div class="form-group">
-                            <input type="tel" id="phoneNumber" placeholder="Phone Number *" required>
-                        </div>
+                <div class="contact-card">
+                    <i class="fa-solid fa-phone"></i>
+                    <div>
+                        <h3>Phone Number</h3>
+                        <p>
+                            <a href="tel:+923029468953">+92 302 9468953</a>
+                        </p>
                     </div>
+                </div>
 
-                    <div class="form-row">
-                        <div class="form-group">
-                            <input type="text" id="petName" placeholder="Pet Name *" required>
-                        </div>
-                        <div class="form-group">
-                            <select id="petType" required>
-                                <option value="" disabled selected>Select Pet Type *</option>
-                                <option value="Dog">Dog</option>
-                                <option value="Cat">Cat</option>
-                                <option value="Bird">Bird</option>
-                                <option value="Rabbit">Rabbit</option>
-                                <option value="Horse">Horse</option>
-                                <option value="Goat">Goat</option>
-                                <option value="Cow">Cow</option>
-                                <option value="Other">Other</option>
-                            </select>
-                        </div>
+                <div class="contact-card">
+                    <i class="fa-solid fa-clock"></i>
+                    <div>
+                        <h3>Working Hours</h3>
+                        <p>Monday – Saturday<br>9:00 AM – 8:00 PM</p>
                     </div>
+                </div>
 
-                    <div class="form-row">
-                        <div class="form-group">
-                            <input type="text" id="breed" placeholder="Breed">
-                        </div>
-                        <div class="form-group">
-                            <input type="text" id="age" placeholder="Age">
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <select id="requiredService" required>
-                            <option value="" disabled selected>Select a Service *</option>
-                            <option value="General Checkup">General Checkup</option>
-                            <option value="Vaccination">Vaccination</option>
-                            <option value="Surgery">Surgery</option>
-                            <option value="Dental Care">Dental Care</option>
-                            <option value="Grooming">Grooming</option>
-                            <option value="Emergency Care">Emergency Care</option>
-                            <option value="Laboratory Tests">Laboratory Tests</option>
-                            <option value="Pet Pharmacy">Pet Pharmacy</option>
-                        </select>
-                    </div>
-
-                    <div class="form-row">
-                        <div class="form-group">
-                            <input type="date" id="preferredDate" placeholder="Preferred Date *" required>
-                        </div>
-                        <div class="form-group">
-                            <input type="time" id="preferredTime" placeholder="Preferred Time *" required>
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <textarea id="additionalNotes" placeholder="Additional Notes"></textarea>
-                    </div>
-
-                    <button type="submit" class="btn btn-primary" style="width: 100%; justify-content: center; background-color: #25D366;"><i class="fab fa-whatsapp"></i> Book Appointment via WhatsApp</button>
-                    
-                    <p class="form-disclaimer">Your information is not stored. Clicking the button above simply opens WhatsApp with your appointment request pre-filled.</p>
-                </form>
             </div>
+
+            <!-- Google Map -->
+            <div class="map-box">
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3952.8991954540784!2d71.53687867633528!3d34.0181946731699!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6d54020c63ea8aab%3A0x3b5713fc2f19c067!2sDr%20Fahim%20Pets%20Clinic!5e1!3m2!1sen!2s!4v1785833171176!5m2!1sen!2s"
+                    allowfullscreen=""
+                    loading="lazy"
+                    referrerpolicy="strict-origin-when-cross-origin"
+                    style="border:0;width:100%;height:100%;">
+                </iframe>
+            </div>
+
         </div>
-    </section>
+
+        <!-- Emergency Banner -->
+        <div class="emergency-box">
+            <i class="fa-solid fa-triangle-exclamation"></i>
+            <strong>Emergency?</strong>
+            If your pet is experiencing a life-threatening emergency,
+            <a href="tel:+923029468953">Call +92 302 9468953</a>
+            immediately.
+        </div>
+
+        <!-- WhatsApp Booking Form -->
+        <form class="contact-form" id="whatsappBookingForm">
+
+            <div class="form-row">
+                <div class="form-group">
+                    <input type="text" id="ownerName" placeholder="Owner Name *" required>
+                </div>
+
+                <div class="form-group">
+                    <input type="tel" id="phoneNumber" placeholder="Phone Number *" required>
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group">
+                    <input type="text" id="petName" placeholder="Pet Name *" required>
+                </div>
+
+                <div class="form-group">
+                    <select id="petType" required>
+                        <option value="" disabled selected>Select Pet Type *</option>
+                        <option>Dog</option>
+                        <option>Cat</option>
+                        <option>Bird</option>
+                        <option>Rabbit</option>
+                        <option>Horse</option>
+                        <option>Goat</option>
+                        <option>Cow</option>
+                        <option>Other</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group">
+                    <input type="text" id="breed" placeholder="Breed">
+                </div>
+
+                <div class="form-group">
+                    <input type="text" id="age" placeholder="Age">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <select id="requiredService" required>
+                    <option value="" disabled selected>Select a Service *</option>
+                    <option>General Checkup</option>
+                    <option>Vaccination</option>
+                    <option>Surgery</option>
+                    <option>Dental Care</option>
+                    <option>Grooming</option>
+                    <option>Emergency Care</option>
+                    <option>Laboratory Tests</option>
+                    <option>Pet Pharmacy</option>
+                </select>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group">
+                    <input type="date" id="preferredDate" required>
+                </div>
+
+                <div class="form-group">
+                    <input type="time" id="preferredTime" required>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <textarea id="additionalNotes" placeholder="Additional Notes"></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-primary" style="width:100%;justify-content:center;background:#25D366;">
+                <i class="fab fa-whatsapp"></i>
+                Book Appointment via WhatsApp
+            </button>
+
+            <p class="form-disclaimer">
+                Your information is not stored. Clicking the button above simply opens WhatsApp with your appointment request pre-filled.
+            </p>
+
+        </form>
+
+    </div>
+</section>
 
    <!-- Ultra Slim Footer -->
 <footer class="footer-slim">
@@ -1115,8 +1214,13 @@ body.dark-mode .footer-bottom {
         <div class="footer-content">
             <p>
                 <strong>Dr. Fahim Pet Clinic</strong> |
-                <i class="fa-solid fa-location-dot"></i> Cantt Plaza, Warsak Rd, Peshawar |
-                <i class="fa-solid fa-phone"></i> +92 302 9468953 |
+<i class="fa-solid fa-location-dot"></i>
+<a href="https://maps.google.com/?q=34.0181946731699,71.53687867633528"
+   target="_blank"
+   rel="noopener noreferrer"
+   class="address-link">
+    Cantt Plaza, Warsak Rd, Peshawar
+</a> |                <i class="fa-solid fa-phone"></i> +92 302 9468953 |
                 <i class="fa-solid fa-clock"></i> Mon – Sat: 9AM – 8PM
             </p>
 
