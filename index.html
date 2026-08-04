@@ -1,0 +1,1262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dr. Fahim Pet Clinic - Compassionate Veterinary Care</title>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+    /*==================================================
+      CSS VARIABLES & THEMING
+    ==================================================*/
+    :root {
+        --primary: #FF7043;
+        --primary-dark: #F4511E;
+        --secondary: #FFA726;
+        --accent: #26A69A;
+
+        --white: #ffffff;
+        --background: #FFFBF7;
+        --dark: #3E2723;
+        --text: #5D4037;
+        --border: #FBE9E7;
+
+        --shadow-sm: 0 5px 15px rgba(255, 112, 67, 0.06);
+        --shadow: 0 15px 35px rgba(255, 112, 67, 0.12);
+        --shadow-lg: 0 25px 60px rgba(255, 112, 67, 0.18);
+
+        --radius: 18px;
+        --radius-lg: 28px;
+        --transition: 0.35s ease;
+        --container: 1200px;
+    }
+
+    body.dark-mode {
+        background: #181210;
+        color: #D7CCC8;
+    }
+
+    /*==================================================
+      GLOBAL BASE STYLES
+    ==================================================*/
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    html {
+        scroll-behavior: smooth;
+    }
+
+    body {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        background: var(--background);
+        color: var(--text);
+        line-height: 1.6;
+        transition: background 0.3s ease, color 0.3s ease;
+    }
+
+    .container {
+        max-width: var(--container);
+        margin: 0 auto;
+        padding: 0 20px;
+    }
+
+    section {
+        padding: 90px 0;
+        position: relative;
+    }
+
+    body.dark-mode section {
+        background: #181210;
+    }
+
+    h1, h2, h3 {
+        color: var(--dark);
+        font-weight: 700;
+        transition: color 0.3s ease;
+    }
+
+    body.dark-mode h1,
+    body.dark-mode h2,
+    body.dark-mode h3 {
+        color: #FFF3E0;
+    }
+
+    p {
+        color: var(--text);
+        transition: color 0.3s ease;
+    }
+
+    body.dark-mode p {
+        color: #D7CCC8;
+    }
+
+    a {
+        text-decoration: none;
+        transition: var(--transition);
+    }
+
+    /* Buttons */
+    .btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        padding: 14px 28px;
+        border-radius: 999px;
+        font-weight: 600;
+        cursor: pointer;
+        border: none;
+        transition: var(--transition);
+    }
+
+    .btn-primary {
+        background: var(--primary);
+        color: #fff;
+        box-shadow: var(--shadow-sm);
+    }
+
+    .btn-primary:hover {
+        background: var(--primary-dark);
+        transform: translateY(-3px);
+    }
+
+    .btn-secondary {
+        background: transparent;
+        border: 2px solid var(--primary);
+        color: var(--primary);
+    }
+
+    .btn-secondary:hover {
+        background: var(--primary);
+        color: #fff;
+        transform: translateY(-3px);
+    }
+
+    /* Section Headers */
+    .section-header {
+        text-align: center;
+        max-width: 700px;
+        margin: 0 auto 60px;
+    }
+
+    .section-tag {
+        display: inline-block;
+        padding: 8px 18px;
+        margin-bottom: 15px;
+        border-radius: 999px;
+        background: rgba(255, 112, 67, 0.1);
+        color: var(--primary);
+        font-size: 0.85rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+    }
+
+    .section-header h2 {
+        font-size: 2.4rem;
+        margin-bottom: 15px;
+    }
+
+    /*==================================================
+      HEADER & NAVIGATION
+    ==================================================*/
+    header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        background: rgba(255, 251, 247, 0.9);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        z-index: 1000;
+        border-bottom: 1px solid var(--border);
+        transition: var(--transition);
+    }
+
+    body.dark-mode header {
+        background: rgba(24, 18, 16, 0.9);
+        border-color: rgba(255, 255, 255, 0.05);
+    }
+
+    .nav-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        height: 80px;
+    }
+
+    .logo {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        font-size: 1.2rem;
+        font-weight: 700;
+        color: var(--dark);
+    }
+
+    body.dark-mode .logo {
+        color: #FFF3E0;
+    }
+
+    .logo img {
+        width: 45px;
+        height: 45px;
+        object-fit: contain;
+    }
+
+    .nav-links {
+        display: flex;
+        gap: 30px;
+        list-style: none;
+        align-items: center;
+    }
+
+    .nav-links a {
+        color: var(--text);
+        font-weight: 600;
+        font-size: 0.95rem;
+    }
+
+    body.dark-mode .nav-links a {
+        color: #D7CCC8;
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active {
+        color: var(--primary);
+    }
+
+    .nav-actions {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+    }
+
+    .theme-toggle {
+        width: 42px;
+        height: 42px;
+        border-radius: 50%;
+        background: rgba(255, 112, 67, 0.1);
+        border: none;
+        color: var(--primary);
+        font-size: 1.1rem;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: var(--transition);
+    }
+
+    .theme-toggle:hover {
+        background: var(--primary);
+        color: #fff;
+    }
+
+    .menu-btn {
+        display: none;
+        background: none;
+        border: none;
+        font-size: 1.5rem;
+        color: var(--dark);
+        cursor: pointer;
+    }
+
+    body.dark-mode .menu-btn {
+        color: #FFF3E0;
+    }
+
+    /*==================================================
+      HOME / HERO SECTION
+    ==================================================*/
+    .hero {
+        padding-top: 160px;
+        padding-bottom: 110px;
+        background: linear-gradient(135deg, rgba(255, 112, 67, 0.08), rgba(255, 167, 38, 0.05));
+    }
+
+    body.dark-mode .hero {
+        background: linear-gradient(135deg, #181210, #231B18);
+    }
+
+    .hero-grid {
+        display: grid;
+        grid-template-columns: 1.1fr 0.9fr;
+        gap: 50px;
+        align-items: center;
+    }
+
+    .hero-content h1 {
+        font-size: 3.5rem;
+        line-height: 1.2;
+        margin-bottom: 20px;
+    }
+
+    .hero-content h1 span {
+        color: var(--primary);
+    }
+
+    .hero-content p {
+        font-size: 1.1rem;
+        margin-bottom: 30px;
+        max-width: 540px;
+    }
+
+    .hero-buttons {
+        display: flex;
+        gap: 15px;
+        flex-wrap: wrap;
+    }
+
+    .hero-image img {
+        width: 100%;
+        border-radius: var(--radius-lg);
+        box-shadow: var(--shadow-lg);
+        object-fit: cover;
+        height: 450px;
+    }
+
+    /*==================================================
+      ABOUT SECTION
+    ==================================================*/
+    .about {
+        background: var(--white);
+    }
+
+    body.dark-mode .about {
+        background: #181210;
+    }
+
+    .about-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 60px;
+        align-items: center;
+    }
+
+    .about-img img {
+        width: 100%;
+        border-radius: var(--radius-lg);
+        box-shadow: var(--shadow);
+        height: 420px;
+        object-fit: cover;
+    }
+
+    .about-text h2 {
+        font-size: 2.5rem;
+        margin-bottom: 20px;
+    }
+
+    .about-text p {
+        margin-bottom: 20px;
+    }
+
+    .feature-list {
+        list-style: none;
+        margin-top: 25px;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 15px;
+    }
+
+    .feature-list li {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        font-weight: 600;
+        color: var(--dark);
+    }
+
+    body.dark-mode .feature-list li {
+        color: #FFF3E0;
+    }
+
+    .feature-list li i {
+        color: var(--accent);
+    }
+
+    /*==================================================
+      SERVICES SECTION
+    ==================================================*/
+    .services {
+        background: var(--background);
+    }
+
+    .services-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 30px;
+    }
+
+    .service-card {
+        background: var(--white);
+        padding: 40px 30px;
+        border-radius: var(--radius);
+        box-shadow: var(--shadow-sm);
+        transition: var(--transition);
+        border: 1px solid transparent;
+    }
+
+    body.dark-mode .service-card {
+        background: #231B18;
+        border-color: rgba(255, 255, 255, 0.05);
+    }
+
+    .service-card:hover {
+        transform: translateY(-8px);
+        box-shadow: var(--shadow);
+        border-color: rgba(255, 112, 67, 0.2);
+    }
+
+    .service-icon {
+        width: 70px;
+        height: 70px;
+        border-radius: 20px;
+        background: linear-gradient(135deg, var(--primary), var(--secondary));
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #fff;
+        font-size: 1.8rem;
+        margin-bottom: 25px;
+        box-shadow: 0 10px 25px rgba(255, 112, 67, 0.25);
+    }
+
+    .service-card h3 {
+        margin-bottom: 12px;
+        font-size: 1.3rem;
+    }
+
+    .service-card p {
+        font-size: 0.95rem;
+        margin-bottom: 20px;
+    }
+
+    /*==================================================
+      GALLERY SECTION
+    ==================================================*/
+    .gallery {
+        background: var(--white);
+    }
+
+    body.dark-mode .gallery {
+        background: #181210;
+    }
+
+    .gallery-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 20px;
+    }
+
+    .gallery-item {
+        position: relative;
+        overflow: hidden;
+        border-radius: var(--radius);
+        height: 260px;
+        box-shadow: var(--shadow-sm);
+    }
+
+    .gallery-item img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.5s ease;
+    }
+
+    .gallery-item:hover img {
+        transform: scale(1.1);
+    }
+
+    .gallery-overlay {
+        position: absolute;
+        inset: 0;
+        background: rgba(62, 39, 35, 0.6);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        opacity: 0;
+        transition: var(--transition);
+    }
+
+    .gallery-item:hover .gallery-overlay {
+        opacity: 1;
+    }
+
+    .gallery-overlay span {
+        color: #fff;
+        font-weight: 600;
+        font-size: 1.1rem;
+        border: 2px solid rgba(255, 255, 255, 0.8);
+        padding: 8px 16px;
+        border-radius: 999px;
+    }
+
+    /*==================================================
+      CONTACT SECTION WITH MAP
+    ==================================================*/
+    .contact {
+        background: var(--background);
+    }
+
+    .contact-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 50px;
+        align-items: stretch;
+    }
+
+    .contact-info-column {
+        display: flex;
+        flex-direction: column;
+        gap: 25px;
+    }
+
+    .contact-card {
+        display: flex;
+        align-items: flex-start;
+        gap: 20px;
+        background: var(--white);
+        padding: 20px 25px;
+        border-radius: var(--radius);
+        box-shadow: var(--shadow-sm);
+    }
+
+    body.dark-mode .contact-card {
+        background: #231B18;
+    }
+
+    .contact-card i {
+        font-size: 1.4rem;
+        color: var(--primary);
+        margin-top: 3px;
+    }
+
+    .contact-card h3 {
+        font-size: 1rem;
+        margin-bottom: 4px;
+    }
+
+    .contact-card p {
+        font-size: 0.9rem;
+    }
+
+    /* Small Map Box */
+    .map-box {
+        width: 100%;
+        height: 220px;
+        border-radius: var(--radius);
+        overflow: hidden;
+        box-shadow: var(--shadow-sm);
+        border: 1px solid var(--border);
+    }
+
+    body.dark-mode .map-box {
+        border-color: rgba(255, 255, 255, 0.08);
+    }
+
+    .map-box iframe {
+        width: 100%;
+        height: 100%;
+        border: 0;
+    }
+
+    .contact-form {
+        background: var(--white);
+        padding: 35px 40px;
+        border-radius: var(--radius);
+        box-shadow: var(--shadow-sm);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    body.dark-mode .contact-form {
+        background: #231B18;
+    }
+
+    .form-row {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 15px;
+    }
+
+    .form-group {
+        margin-bottom: 18px;
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+        width: 100%;
+        padding: 14px 18px;
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        background: var(--background);
+        color: var(--dark);
+        font-size: 0.95rem;
+        outline: none;
+        transition: var(--transition);
+    }
+
+    body.dark-mode .form-group input,
+    body.dark-mode .form-group select,
+    body.dark-mode .form-group textarea {
+        background: #181210;
+        border-color: rgba(255, 255, 255, 0.08);
+        color: #FFF3E0;
+    }
+
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+        border-color: var(--primary);
+        box-shadow: 0 0 0 4px rgba(255, 112, 67, 0.15);
+    }
+
+    .form-group select {
+        cursor: pointer;
+    }
+
+    .form-group textarea {
+        min-height: 90px;
+        resize: vertical;
+    }
+
+    .form-disclaimer {
+        font-size: 0.8rem;
+        color: var(--text);
+        text-align: center;
+        margin-top: 12px;
+        opacity: 0.8;
+    }
+
+    body.dark-mode .form-disclaimer {
+        color: #D7CCC8;
+    }
+.emergency-call {
+    color: var(--primary);
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.emergency-call:hover {
+    text-decoration: underline;
+}
+    /*==================================================
+    SLIM FOOTER
+==================================================*/
+
+footer {
+    background: #FFF3EC;
+    color: #5D4037;
+    padding: 15px 0 10px;
+    position: relative;
+    overflow: hidden;
+}
+
+body.dark-mode footer {
+    background: #0F0A09;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    position: relative;
+    z-index: 2;
+}
+
+.footer-content p {
+    margin: 0;
+    font-size: 0.9rem;
+    line-height: 1.5;
+}
+
+.footer-content i {
+    color: var(--primary);
+    margin: 0 5px 0 10px;
+}
+
+.footer-content i:first-child {
+    margin-left: 0;
+}
+
+.social-links {
+    display: flex;
+    gap: 10px;
+}
+
+.social-links a {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: rgba(255, 112, 67, 0.1);
+    color: var(--primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: var(--transition);
+}
+
+.social-links a:hover {
+    background: var(--primary);
+    color: #fff;
+    transform: translateY(-4px);
+}
+
+.footer-bottom {
+    text-align: center;
+    padding-top: 10px;
+    margin-top: 10px;
+    border-top: 1px solid rgba(93, 64, 55, 0.08);
+    position: relative;
+    z-index: 2;
+}
+
+body.dark-mode .footer-bottom {
+    border-color: rgba(255, 255, 255, 0.06);
+}
+
+.footer-bottom p {
+    margin: 0;
+    font-size: 0.85rem;
+}
+
+@media (max-width: 768px) {
+    .footer-content {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .footer-content p {
+        line-height: 1.8;
+    }
+}
+    /*==================================================
+      SCROLL TO TOP BUTTON
+    ==================================================*/
+    #scrollTopBtn {
+        position: fixed;
+        right: 30px;
+        bottom: 30px;
+        width: 50px;
+        height: 50px;
+        border: none;
+        border-radius: 50%;
+        background: linear-gradient(135deg, var(--primary), var(--secondary));
+        color: #fff;
+        font-size: 1.1rem;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: var(--shadow);
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(20px);
+        transition: all 0.35s ease;
+        z-index: 999;
+    }
+
+    #scrollTopBtn.show {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+    }
+
+    #scrollTopBtn:hover {
+        transform: translateY(-5px);
+    }
+
+    /*==================================================
+      RESPONSIVE MEDIA QUERIES
+    ==================================================*/
+    @media (max-width: 992px) {
+        .hero-grid,
+        .about-grid,
+        .contact-grid {
+            grid-template-columns: 1fr;
+            gap: 40px;
+        }
+        .hero-content {
+            text-align: center;
+        }
+        .hero-buttons,
+        .hero-content p {
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .services-grid {
+            grid-template-columns: repeat(2, 1fr);
+        }
+        .gallery-grid {
+            grid-template-columns: repeat(2, 1fr);
+        }
+        .footer-grid-slim {
+            grid-template-columns: 1fr;
+            text-align: center;
+            gap: 25px;
+        }
+        .footer-brand {
+            flex-direction: column;
+        }
+        .footer-contact-slim ul {
+            align-items: center;
+        }
+        .social-links {
+            justify-content: center;
+        }
+    }
+
+    @media (max-width: 768px) {
+        .nav-links {
+            position: fixed;
+            top: 80px;
+            left: -100%;
+            width: 100%;
+            height: calc(100vh - 80px);
+            background: var(--background);
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            transition: 0.4s ease;
+            box-shadow: var(--shadow);
+        }
+        body.dark-mode .nav-links {
+            background: #181210;
+        }
+        .nav-links.active {
+            left: 0;
+        }
+        .menu-btn {
+            display: block;
+        }
+        .services-grid,
+        .gallery-grid {
+            grid-template-columns: 1fr;
+        }
+        .hero-content h1 {
+            font-size: 2.5rem;
+        }
+        .form-row {
+            grid-template-columns: 1fr;
+            gap: 0;
+        }
+    }
+    </style>
+</head>
+<body>
+
+    <!-- Header & Navigation -->
+    <header>
+        <div class="container nav-container">
+            <a href="#home" class="logo">
+                <img src="logo.png" alt="Dr. Fahim Pet Clinic Logo" onerror="this.src='https://img.icons8.com/color/96/pet-commands-collie.png'">
+                <span>Dr. Fahim Pet Clinic</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="#home" class="active">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#gallery">Gallery</a></li>
+                <li><a href="#contact">Book Appointment</a></li>
+            </ul>
+            <div class="nav-actions">
+                <button id="themeToggle" class="theme-toggle" aria-label="Toggle Dark Mode">
+                    <i class="fa-solid fa-moon"></i>
+                </button>
+                <button class="menu-btn" id="menuBtn" aria-label="Toggle Navigation">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Home Section -->
+    <section id="home" class="hero">
+        <div class="container hero-grid">
+            <div class="hero-content">
+                <span class="section-tag">Welcome to Expert Pet Care</span>
+                <h1>Compassionate Medical Care for Your <span>Beloved Pets</span></h1>
+                <p>Premium veterinary healthcare dedicated to improving the lives of pets through advanced treatment, gentle handling, and modern medicine.</p>
+                <div class="hero-buttons">
+                    <a href="#contact" class="btn btn-primary"><i class="fa-solid fa-calendar-check"></i> Book Appointment</a>
+                    <a href="#services" class="btn btn-secondary">Explore Services</a>
+                </div>
+            </div>
+            <div class="hero-image">
+                <img src="https://images.unsplash.com/photo-1583337130417-3346a1be7dee?auto=format&fit=crop&q=80&w=800" alt="Happy pet at clinic">
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container about-grid">
+            <div class="about-img">
+                <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&q=80&w=800" alt="Dr. Fahim with pets">
+            </div>
+            <div class="about-text">
+                <span class="section-tag">About Our Clinic</span>
+                <h2>Dedicated to Excellence in Veterinary Medicine</h2>
+                <p>At Dr. Fahim Pet Clinic, we treat your pets like our own family. With cutting-edge diagnostics, experienced professionals, and an environment built for comfort, we ensure your pets lead happy, healthy lives.</p>
+                <ul class="feature-list">
+                    <li><i class="fa-solid fa-circle-check"></i> Certified Veterinarians</li>
+                    <li><i class="fa-solid fa-circle-check"></i> 24/7 Emergency Support</li>
+                    <li><i class="fa-solid fa-circle-check"></i> Advanced Lab & Surgery</li>
+                    <li><i class="fa-solid fa-circle-check"></i> Friendly Handling</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="services">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Our Medical Services</span>
+                <h2>What We Offer For Your Pets</h2>
+                <p>Comprehensive medical, surgical, and wellness packages customized for every stage of your pet's life.</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon"><i class="fa-solid fa-stethoscope"></i></div>
+                    <h3>General Checkup</h3>
+                    <p>Routine health diagnostics, physical examinations, and wellness screening to catch conditions early.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon"><i class="fa-solid fa-syringe"></i></div>
+                    <h3>Vaccination</h3>
+                    <p>Essential shots and immunization schedules tailored to protect your pets from infectious diseases.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon"><i class="fa-solid fa-scalpel"></i></div>
+                    <h3>Pet Surgery</h3>
+                    <p>Safe soft-tissue and orthopedic surgical procedures performed under advanced anesthesia and monitoring.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon"><i class="fa-solid fa-tooth"></i></div>
+                    <h3>Dental Care</h3>
+                    <p>Professional ultrasonic scaling, polishing, and comprehensive oral hygiene management.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon"><i class="fa-solid fa-flask"></i></div>
+                    <h3>Laboratory Testing</h3>
+                    <p>In-house blood panels, urinalysis, and microscopic evaluations for rapid and accurate diagnosis.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon"><i class="fa-solid fa-kit-medical"></i></div>
+                    <h3>Emergency Care</h3>
+                    <p>Prompt, critical intervention and urgent care services available when your pet needs us most.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section id="gallery" class="gallery">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Clinic Gallery</span>
+                <h2>Happy Patients & Modern Facility</h2>
+                <p>Take a look inside our clinic and meet some of our adorable furry patients.</p>
+            </div>
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1543466835-00a7907e9de1?auto=format&fit=crop&q=80&w=600" alt="Dog Patient">
+                    <div class="gallery-overlay"><span>Max</span></div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?auto=format&fit=crop&q=80&w=600" alt="Cat Patient">
+                    <div class="gallery-overlay"><span>Luna</span></div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1537151625747-768eb6cf92b2?auto=format&fit=crop&q=80&w=600" alt="Puppy Care">
+                    <div class="gallery-overlay"><span>Buddy</span></div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1533738363-b7f9aef128ce?auto=format&fit=crop&q=80&w=600" alt="Cat Checkup">
+                    <div class="gallery-overlay"><span>Milo</span></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact & Booking Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Book An Appointment</span>
+                <h2>Schedule Your Visit via WhatsApp</h2>
+                <p>Complete the form below and we'll prepare your appointment request through WhatsApp instantly.</p>
+            </div>
+            <div class="contact-grid">
+                <div class="contact-info-column">
+                    <div class="contact-card">
+                        <i class="fa-solid fa-location-dot"></i>
+                        <div>
+                            <h3>Location</h3>
+                            <p>Cantt Plaza, Warsak Rd, near Askari 4, Peshawar, Pakistan</p>
+                        </div>
+                    </div>
+                    <div class="contact-card">
+                        <i class="fa-solid fa-phone"></i>
+                        <div>
+                            <h3>Phone Number</h3>
+                            <p>+92 302 9468953</p>
+                        </div>
+                    </div>
+                    <div class="contact-card">
+                        <i class="fa-solid fa-clock"></i>
+                        <div>
+                            <h3>Working Hours</h3>
+                            <p>Mon – Sat : 9:00 AM – 8:00 PM</p>
+                        </div>
+                    </div>
+                    <!-- Small Embedded Map -->
+                    <div class="map-box">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3305.5!2d71.5!3d34.02!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzTCsDAxJzEyLjAiTiA3McKwMzAnMDAuMCJF!5e0!3m2!1sen!2s!4v1650000000000!5m2!1sen!2s" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    </div>
+                </div>
+
+                <!-- Comprehensive WhatsApp Booking Form -->
+<h2>
+    🚨 If it's a life-threatening emergency, call
+    <a href="tel:+923029468953" class="emergency-call">+92 302 9468953</a>
+    immediately.
+</h2>
+                <form class="contact-form" id="whatsappBookingForm">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <input type="text" id="ownerName" placeholder="Owner Name *" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="tel" id="phoneNumber" placeholder="Phone Number *" required>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <input type="text" id="petName" placeholder="Pet Name *" required>
+                        </div>
+                        <div class="form-group">
+                            <select id="petType" required>
+                                <option value="" disabled selected>Select Pet Type *</option>
+                                <option value="Dog">Dog</option>
+                                <option value="Cat">Cat</option>
+                                <option value="Bird">Bird</option>
+                                <option value="Rabbit">Rabbit</option>
+                                <option value="Horse">Horse</option>
+                                <option value="Goat">Goat</option>
+                                <option value="Cow">Cow</option>
+                                <option value="Other">Other</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <input type="text" id="breed" placeholder="Breed">
+                        </div>
+                        <div class="form-group">
+                            <input type="text" id="age" placeholder="Age">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <select id="requiredService" required>
+                            <option value="" disabled selected>Select a Service *</option>
+                            <option value="General Checkup">General Checkup</option>
+                            <option value="Vaccination">Vaccination</option>
+                            <option value="Surgery">Surgery</option>
+                            <option value="Dental Care">Dental Care</option>
+                            <option value="Grooming">Grooming</option>
+                            <option value="Emergency Care">Emergency Care</option>
+                            <option value="Laboratory Tests">Laboratory Tests</option>
+                            <option value="Pet Pharmacy">Pet Pharmacy</option>
+                        </select>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <input type="date" id="preferredDate" placeholder="Preferred Date *" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="time" id="preferredTime" placeholder="Preferred Time *" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <textarea id="additionalNotes" placeholder="Additional Notes"></textarea>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary" style="width: 100%; justify-content: center; background-color: #25D366;"><i class="fab fa-whatsapp"></i> Book Appointment via WhatsApp</button>
+                    
+                    <p class="form-disclaimer">Your information is not stored. Clicking the button above simply opens WhatsApp with your appointment request pre-filled.</p>
+                </form>
+            </div>
+        </div>
+    </section>
+
+   <!-- Ultra Slim Footer -->
+<footer class="footer-slim">
+    <div class="container">
+        <div class="footer-content">
+            <p>
+                <strong>Dr. Fahim Pet Clinic</strong> |
+                <i class="fa-solid fa-location-dot"></i> Cantt Plaza, Warsak Rd, Peshawar |
+                <i class="fa-solid fa-phone"></i> +92 302 9468953 |
+                <i class="fa-solid fa-clock"></i> Mon – Sat: 9AM – 8PM
+            </p>
+
+            <div class="social-links">
+                <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="#" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2026 Dr. Fahim Pet Clinic. All Rights Reserved.</p>
+        </div>
+    </div>
+</footer>
+
+    <!-- Scroll To Top Button -->
+    <button id="scrollTopBtn" aria-label="Scroll to top">
+        <i class="fa-solid fa-arrow-up"></i>
+    </button>
+
+    <!-- JavaScript Functionality -->
+    <script>
+        // Mobile Menu Toggle
+        const menuBtn = document.getElementById('menuBtn');
+        const navLinks = document.querySelector('.nav-links');
+
+        menuBtn.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            const icon = menuBtn.querySelector('i');
+            icon.classList.toggle('fa-bars');
+            icon.classList.toggle('fa-xmark');
+        });
+
+        // Close mobile menu on link click
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+                const icon = menuBtn.querySelector('i');
+                icon.classList.add('fa-bars');
+                icon.classList.remove('fa-xmark');
+            });
+        });
+
+        // Dark / Light Theme Toggle
+        const themeToggle = document.getElementById('themeToggle');
+        const themeIcon = themeToggle.querySelector('i');
+
+        // Check for saved preference
+        if (localStorage.getItem('theme') === 'dark') {
+            document.body.classList.add('dark-mode');
+            themeIcon.classList.replace('fa-moon', 'fa-sun');
+        }
+
+        themeToggle.addEventListener('click', () => {
+            document.body.classList.toggle('dark-mode');
+            if (document.body.classList.contains('dark-mode')) {
+                localStorage.setItem('theme', 'dark');
+                themeIcon.classList.replace('fa-moon', 'fa-sun');
+            } else {
+                localStorage.setItem('theme', 'light');
+                themeIcon.classList.replace('fa-sun', 'fa-moon');
+            }
+        });
+
+        // Scroll to Top Button functionality
+        const scrollTopBtn = document.getElementById('scrollTopBtn');
+
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 400) {
+                scrollTopBtn.classList.add('show');
+            } else {
+                scrollTopBtn.classList.remove('show');
+            }
+
+            // Active Nav Link Update on Scroll
+            const sections = document.querySelectorAll('section');
+            const navItems = document.querySelectorAll('.nav-links a');
+            
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                if (window.scrollY >= sectionTop - 120) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navItems.forEach(item => {
+                item.classList.remove('active');
+                if (item.getAttribute('href') === `#${current}`) {
+                    item.classList.add('active');
+                }
+            });
+        });
+
+        scrollTopBtn.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        // WhatsApp Appointment Form Handler
+const whatsappBookingForm = document.getElementById("whatsappBookingForm");
+
+whatsappBookingForm.addEventListener("submit", (e) => {
+    e.preventDefault();
+
+    const ownerName = document.getElementById("ownerName").value.trim();
+    const phoneNumber = document.getElementById("phoneNumber").value.trim();
+    const petName = document.getElementById("petName").value.trim();
+    const petType = document.getElementById("petType").value;
+    const breed = document.getElementById("breed").value.trim() || "Not specified";
+    const age = document.getElementById("age").value.trim() || "Not specified";
+    const requiredService = document.getElementById("requiredService").value;
+    const preferredDate = document.getElementById("preferredDate").value;
+    const preferredTime = document.getElementById("preferredTime").value;
+    const additionalNotes = document.getElementById("additionalNotes").value.trim() || "None";
+
+    const clinicWhatsAppNumber = "923029468953";
+
+    const message = `🐾 *Appointment Request*
+
+👤 *Owner Name:* ${ownerName}
+📞 *Phone Number:* ${phoneNumber}
+
+🐶 *Pet Details*
+• Name: ${petName}
+• Type: ${petType}
+• Breed: ${breed}
+• Age: ${age}
+
+🩺 *Required Service:* ${requiredService}
+
+📅 *Preferred Date:* ${preferredDate}
+🕒 *Preferred Time:* ${preferredTime}
+
+📝 *Additional Notes:*
+${additionalNotes}
+
+Thank you.`;
+
+    const whatsappURL = `https://wa.me/${clinicWhatsAppNumber}?text=${encodeURIComponent(message)}`;
+
+    window.open(whatsappURL, "_blank");
+});
+    </script>
+</body>
+</html>
