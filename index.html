@@ -1,45 +1,48 @@
-chi<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dr. Fahim Pet Clinic - Compassionate Veterinary Care</title>
+    <title>Home- Dr Fahim Pets Clinic</title>
     <!-- FontAwesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-    /*==================================================
-      CSS VARIABLES & THEMING
-    ==================================================*/
+    /* ==========================================================
+       [SECTION 1: CSS VARIABLES & COLOR PALETTE]
+       ========================================================== */
     :root {
-        --primary: #FF7043;
-        --primary-dark: #F4511E;
-        --secondary: #FFA726;
-        --accent: #26A69A;
+        --primary: #0284C7;        /* Professional Ocean Blue */
+        --primary-dark: #0369A1;   /* Darker Blue for Hover States */
+        --secondary: #38BDF8;      /* Soft Light Blue Accent */
+        --accent: #F43F5E;         /* Vibrant Coral/Red for Alerts & Badges */
 
         --white: #ffffff;
-        --background: #FFFBF7;
-        --dark: #3E2723;
-        --text: #5D4037;
-        --border: #FBE9E7;
+        --background: #F8FAFC;     /* Clean Off-White Background */
+        --dark: #0F172A;           /* Deep Slate for Headings */
+        --text: #475569;           /* Readable Body Text Color */
+        --border: #E2E8F0;         /* Subtle Border Divider Color */
 
-        --shadow-sm: 0 5px 15px rgba(255, 112, 67, 0.06);
-        --shadow: 0 15px 35px rgba(255, 112, 67, 0.12);
-        --shadow-lg: 0 25px 60px rgba(255, 112, 67, 0.18);
+        --shadow-sm: 0 4px 6px -1px rgba(0, 0, 0, 0.04), 0 2px 4px -1px rgba(0, 0, 0, 0.02);
+        --shadow: 0 10px 25px -5px rgba(2, 132, 199, 0.08), 0 8px 10px -6px rgba(2, 132, 199, 0.08);
 
-        --radius: 18px;
-        --radius-lg: 28px;
-        --transition: 0.35s ease;
+        --radius: 12px;
+        --radius-lg: 18px;
+        --transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         --container: 1200px;
     }
 
+    /* Dark Mode Palette Overrides */
     body.dark-mode {
-        background: #181210;
-        color: #D7CCC8;
+        --background: #0B0F19;
+        --white: #111827;
+        --dark: #F9FAFB;
+        --text: #9CA3AF;
+        --border: #1F2937;
     }
 
-    /*==================================================
-      GLOBAL BASE STYLES
-    ==================================================*/
+    /* ==========================================================
+       [SECTION 2: GLOBAL BASE STYLES & RESETS]
+       ========================================================== */
     * {
         margin: 0;
         padding: 0;
@@ -51,11 +54,12 @@ chi<!DOCTYPE html>
     }
 
     body {
-        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        font-family: 'Inter', system-ui, -apple-system, sans-serif;
         background: var(--background);
         color: var(--text);
         line-height: 1.6;
-        transition: background 0.3s ease, color 0.3s ease;
+        transition: background var(--transition), color var(--transition);
+        overflow-x: hidden;
     }
 
     .container {
@@ -65,33 +69,19 @@ chi<!DOCTYPE html>
     }
 
     section {
-        padding: 90px 0;
+        padding: 60px 0;
         position: relative;
-    }
-
-    body.dark-mode section {
-        background: #181210;
     }
 
     h1, h2, h3 {
         color: var(--dark);
         font-weight: 700;
-        transition: color 0.3s ease;
-    }
-
-    body.dark-mode h1,
-    body.dark-mode h2,
-    body.dark-mode h3 {
-        color: #FFF3E0;
+        transition: color var(--transition);
     }
 
     p {
         color: var(--text);
-        transition: color 0.3s ease;
-    }
-
-    body.dark-mode p {
-        color: #D7CCC8;
+        transition: color var(--transition);
     }
 
     a {
@@ -99,76 +89,75 @@ chi<!DOCTYPE html>
         transition: var(--transition);
     }
 
-    /* Buttons */
-    .btn {
-        display: inline-flex;
-        align-items: center;
-        gap: 10px;
-        padding: 14px 28px;
-        border-radius: 999px;
-        font-weight: 600;
-        cursor: pointer;
-        border: none;
-        transition: var(--transition);
-    }
-
-    .btn-primary {
-        background: var(--primary);
+    /* ==========================================================
+       [SECTION 3: TOP EMERGENCY & TIMINGS BAR]
+       ========================================================== */
+    .top-bar {
+        background: #0F172A;
         color: #fff;
-        box-shadow: var(--shadow-sm);
-    }
-
-    .btn-primary:hover {
-        background: var(--primary-dark);
-        transform: translateY(-3px);
-    }
-
-    .btn-secondary {
-        background: transparent;
-        border: 2px solid var(--primary);
-        color: var(--primary);
-    }
-
-    .btn-secondary:hover {
-        background: var(--primary);
-        color: #fff;
-        transform: translateY(-3px);
-    }
-
-    /* Section Headers */
-    .section-header {
-        text-align: center;
-        max-width: 700px;
-        margin: 0 auto 60px;
-    }
-
-    .section-tag {
-        display: inline-block;
-        padding: 8px 18px;
-        margin-bottom: 15px;
-        border-radius: 999px;
-        background: rgba(255, 112, 67, 0.1);
-        color: var(--primary);
-        font-size: 0.85rem;
-        font-weight: 600;
-        text-transform: uppercase;
-        letter-spacing: 0.5px;
-    }
-
-    .section-header h2 {
-        font-size: 2.4rem;
-        margin-bottom: 15px;
-    }
-
-    /*==================================================
-      HEADER & NAVIGATION
-    ==================================================*/
-    header {
+        padding: 8px 20px;
+        font-size: 0.82rem;
         position: fixed;
         top: 0;
         left: 0;
         width: 100%;
-        background: rgba(255, 251, 247, 0.9);
+        z-index: 1001;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .top-bar-container {
+        max-width: var(--container);
+        margin: 0 auto;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 8px;
+    }
+
+    .emergency-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        font-weight: 600;
+        color: #FECDD3;
+    }
+
+    .blinking-dot {
+        width: 8px;
+        height: 8px;
+        background-color: var(--accent);
+        border-radius: 50%;
+        animation: pulse-blink 1.2s infinite ease-in-out;
+    }
+
+    @keyframes pulse-blink {
+        0% { transform: scale(0.95); opacity: 1; box-shadow: 0 0 0 0 rgba(244, 63, 94, 0.7); }
+        70% { transform: scale(1); opacity: 0.5; box-shadow: 0 0 0 8px rgba(244, 63, 94, 0); }
+        100% { transform: scale(0.95); opacity: 1; box-shadow: 0 0 0 0 rgba(244, 63, 94, 0); }
+    }
+
+    .emergency-badge a {
+        color: #F8FAFC;
+        font-weight: 700;
+    }
+
+    .clinic-timings {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        color: #94A3B8;
+    }
+
+    /* ==========================================================
+       [SECTION 4: CLEAN HEADER & NAVIGATION]
+       ========================================================== */
+    header {
+        position: fixed;
+        top: 37px;
+        left: 0;
+        width: 100%;
+        background: rgba(248, 250, 252, 0.92);
         backdrop-filter: blur(12px);
         -webkit-backdrop-filter: blur(12px);
         z-index: 1000;
@@ -177,51 +166,43 @@ chi<!DOCTYPE html>
     }
 
     body.dark-mode header {
-        background: rgba(24, 18, 16, 0.9);
-        border-color: rgba(255, 255, 255, 0.05);
+        background: rgba(11, 15, 25, 0.92);
     }
 
     .nav-container {
         display: flex;
         justify-content: space-between;
         align-items: center;
-        height: 80px;
+        height: 62px;
     }
 
     .logo {
         display: flex;
         align-items: center;
-        gap: 12px;
-        font-size: 1.2rem;
+        gap: 8px;
+        font-size: 1rem;
         font-weight: 700;
         color: var(--dark);
     }
 
-    body.dark-mode .logo {
-        color: #FFF3E0;
-    }
-
     .logo img {
-        width: 45px;
-        height: 45px;
+        width: 32px;
+        height: 32px;
         object-fit: contain;
     }
 
     .nav-links {
         display: flex;
-        gap: 30px;
+        gap: 14px;
         list-style: none;
         align-items: center;
     }
 
     .nav-links a {
         color: var(--text);
-        font-weight: 600;
-        font-size: 0.95rem;
-    }
-
-    body.dark-mode .nav-links a {
-        color: #D7CCC8;
+        font-weight: 500;
+        font-size: 0.8rem;
+        white-space: nowrap;
     }
 
     .nav-links a:hover,
@@ -232,17 +213,17 @@ chi<!DOCTYPE html>
     .nav-actions {
         display: flex;
         align-items: center;
-        gap: 15px;
+        gap: 10px;
     }
 
     .theme-toggle {
-        width: 42px;
-        height: 42px;
+        width: 34px;
+        height: 34px;
         border-radius: 50%;
-        background: rgba(255, 112, 67, 0.1);
+        background: rgba(2, 132, 199, 0.1);
         border: none;
         color: var(--primary);
-        font-size: 1.1rem;
+        font-size: 0.85rem;
         cursor: pointer;
         display: flex;
         align-items: center;
@@ -259,560 +240,705 @@ chi<!DOCTYPE html>
         display: none;
         background: none;
         border: none;
-        font-size: 1.5rem;
+        font-size: 1.2rem;
         color: var(--dark);
         cursor: pointer;
     }
 
-    body.dark-mode .menu-btn {
-        color: #FFF3E0;
-    }
-
-    /*==================================================
-      HOME / HERO SECTION
-    ==================================================*/
-    .hero {
-        padding-top: 160px;
-        padding-bottom: 110px;
-        background: linear-gradient(135deg, rgba(255, 112, 67, 0.08), rgba(255, 167, 38, 0.05));
-    }
-
-    body.dark-mode .hero {
-        background: linear-gradient(135deg, #181210, #231B18);
-    }
-
-    .hero-grid {
-        display: grid;
-        grid-template-columns: 1.1fr 0.9fr;
-        gap: 50px;
+    /* ==========================================================
+       [SECTION 5: BUTTONS & GENERAL UI COMPONENTS]
+       ========================================================== */
+    .btn {
+        display: inline-flex;
         align-items: center;
+        gap: 8px;
+        padding: 10px 20px;
+        border-radius: 999px;
+        font-weight: 600;
+        cursor: pointer;
+        border: none;
+        transition: var(--transition);
+        font-size: 0.86rem;
     }
 
-    .hero-content h1 {
-        font-size: 3.5rem;
-        line-height: 1.2;
-        margin-bottom: 20px;
+    .btn-primary {
+        background: var(--primary);
+        color: #fff;
+        box-shadow: var(--shadow-sm);
     }
 
-    .hero-content h1 span {
+    .btn-primary:hover {
+        background: var(--primary-dark);
+        transform: translateY(-2px);
+        box-shadow: var(--shadow);
+    }
+
+    .btn-outline {
+        background: rgba(255, 255, 255, 0.15);
+        border: 2px solid #fff;
+        color: #fff;
+        backdrop-filter: blur(4px);
+    }
+
+    .btn-outline:hover {
+        background: #fff;
+        color: var(--dark);
+        transform: translateY(-2px);
+    }
+
+    .section-header {
+        text-align: center;
+        max-width: 650px;
+        margin: 0 auto 35px;
+    }
+
+    .section-tag {
+        display: inline-block;
+        padding: 4px 12px;
+        margin-bottom: 8px;
+        border-radius: 999px;
+        background: rgba(2, 132, 199, 0.1);
         color: var(--primary);
+        font-size: 0.76rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
     }
 
-    .hero-content p {
-        font-size: 1.1rem;
-        margin-bottom: 30px;
-        max-width: 540px;
+    .section-header h2 {
+        font-size: 2rem;
+        margin-bottom: 8px;
+    }
+
+    /* ==========================================================
+       [SECTION 6: HERO BACKGROUND BANNER CAROUSEL]
+       ========================================================== */
+    .hero {
+        position: relative;
+        padding-top: 170px;
+        padding-bottom: 100px;
+        text-align: center;
+        color: #fff;
+        overflow: hidden;
+    }
+
+    .hero-slide {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-repeat: no-repeat;
+        background-position: center center;
+        background-size: cover;
+        opacity: 0;
+        transition: opacity 1.2s ease-in-out;
+        z-index: 1;
+    }
+
+    .hero-slide.active {
+        opacity: 1;
+    }
+
+    .hero::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(135deg, rgba(15, 23, 42, 0.35), rgba(2, 132, 199, 0.25));
+        z-index: 2;
+    }
+
+    .hero .container {
+        position: relative;
+        z-index: 3;
+        max-width: 800px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .hero .section-tag {
+        background: rgba(202, 189, 189, 0.15);
+        color: #38BDF8;
+        border: 1px solid rgba(163, 202, 219, 0.3);
+        padding: 6px 16px;
+        border-radius: 50px;
+        display: inline-block;
+        margin-bottom: 20px;
+        font-size: 0.9rem;
+    }
+
+    .hero h1 {
+        font-size: 2.8rem;
+        line-height: 1.2;
+        margin-bottom: 16px;
+        color: #fff;
+        text-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
+    }
+
+    .hero h1 span {
+        color: var(--secondary);
+    }
+
+    .hero p {
+        font-size: 1.05rem;
+        margin-bottom: 28px;
+        color: #E2E8F0;
+        max-width: 680px;
+        margin-left: auto;
+        margin-right: auto;
+        text-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
     }
 
     .hero-buttons {
+        position: relative;
+        z-index: 4;
         display: flex;
-        gap: 15px;
+        justify-content: center;
+        gap: 12px;
         flex-wrap: wrap;
     }
 
-    .hero-image img {
+    /* ==========================================================
+       [SECTION 7: ABOUT OUR PRACTICE]
+       ========================================================== */
+    .about {
+        background: var(--background);
+        padding: 40px 16px;
+    }
+
+    .about-wrapper {
+        max-width: 820px;
+        margin: 0 auto;
+        width: 100%;
+    }
+
+    .about-text-top {
+        text-align: center;
+        margin-bottom: 24px;
+    }
+
+    .about-img-box {
         width: 100%;
         border-radius: var(--radius-lg);
-        box-shadow: var(--shadow-lg);
-        object-fit: cover;
-        height: 450px;
-    }
-
-    /*==================================================
-      ABOUT SECTION
-    ==================================================*/
-    .about {
-        background: var(--white);
-    }
-
-    body.dark-mode .about {
-        background: #181210;
-    }
-
-    .about-grid {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 60px;
+        overflow: hidden;
+        box-shadow: var(--shadow);
+        background: var(--background);
+        display: flex;
+        justify-content: center;
         align-items: center;
     }
 
-    .about-img img {
+    .about-img-box img {
         width: 100%;
-        border-radius: var(--radius-lg);
-        box-shadow: var(--shadow);
-        height: 420px;
-        object-fit: cover;
-    }
-
-    .about-text h2 {
-        font-size: 2.5rem;
-        margin-bottom: 20px;
-    }
-
-    .about-text p {
-        margin-bottom: 20px;
+        height: auto;
+        max-height: 80vh;
+        object-fit: contain;
+        display: block;
     }
 
     .feature-list {
         list-style: none;
-        margin-top: 25px;
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 15px;
+        margin-top: 22px;
+        display: flex;
+        justify-content: center;
+        gap: 22px;
+        flex-wrap: wrap;
+        padding: 0;
     }
 
     .feature-list li {
         display: flex;
         align-items: center;
-        gap: 10px;
+        gap: 6px;
         font-weight: 600;
+        font-size: 0.86rem;
         color: var(--dark);
     }
 
-    body.dark-mode .feature-list li {
-        color: #FFF3E0;
-    }
-
     .feature-list li i {
-        color: var(--accent);
+        color: var(--primary);
     }
 
-    /*==================================================
-      SERVICES SECTION
-    ==================================================*/
+    /* ==========================================================
+       [SECTION 8: MEDICAL SERVICES]
+       ========================================================== */
     .services {
-        background: var(--background);
+        background: var(--white);
     }
 
     .services-grid {
         display: grid;
         grid-template-columns: repeat(3, 1fr);
-        gap: 30px;
+        gap: 16px;
     }
 
     .service-card {
-        background: var(--white);
-        padding: 40px 30px;
+        background: var(--background);
+        padding: 20px 16px;
         border-radius: var(--radius);
         box-shadow: var(--shadow-sm);
         transition: var(--transition);
-        border: 1px solid transparent;
-    }
-
-    body.dark-mode .service-card {
-        background: #231B18;
-        border-color: rgba(255, 255, 255, 0.05);
+        border: 1px solid var(--border);
+        display: flex;
+        align-items: flex-start;
+        gap: 12px;
     }
 
     .service-card:hover {
-        transform: translateY(-8px);
+        transform: translateY(-3px);
         box-shadow: var(--shadow);
-        border-color: rgba(255, 112, 67, 0.2);
+        border-color: rgba(2, 132, 199, 0.3);
     }
 
     .service-icon {
-        width: 70px;
-        height: 70px;
-        border-radius: 20px;
+        width: 40px;
+        height: 40px;
+        min-width: 40px;
+        border-radius: 10px;
         background: linear-gradient(135deg, var(--primary), var(--secondary));
         display: flex;
         align-items: center;
         justify-content: center;
         color: #fff;
-        font-size: 1.8rem;
-        margin-bottom: 25px;
-        box-shadow: 0 10px 25px rgba(255, 112, 67, 0.25);
+        font-size: 1rem;
+        box-shadow: 0 4px 10px rgba(2, 132, 199, 0.2);
     }
 
-    .service-card h3 {
-        margin-bottom: 12px;
-        font-size: 1.3rem;
+    .service-content h3 {
+        margin-bottom: 2px;
+        font-size: 1rem;
     }
 
-    .service-card p {
-        font-size: 0.95rem;
-        margin-bottom: 20px;
+    .service-content p {
+        font-size: 0.8rem;
+        line-height: 1.4;
     }
 
-    /*==================================================
-      GALLERY SECTION
-    ==================================================*/
-    .gallery {
+    /* ==========================================================
+       [SECTION 9 & 10: CAROUSELS (BOARDING & GROOMING AREA)]
+       ========================================================== */
+    .carousel-section, .grooming-carousel-section {
+        background: var(--background);
+    }
+
+    .grooming-carousel-section {
         background: var(--white);
     }
 
-    body.dark-mode .gallery {
-        background: #181210;
+    .carousel-container {
+        position: relative;
+        max-width: 880px;
+        margin: 0 auto;
+        overflow: hidden;
+        border-radius: var(--radius-lg);
+        box-shadow: var(--shadow);
+        background: var(--white);
+        border: 1px solid var(--border);
+    }
+
+    .carousel-track {
+        display: flex;
+        transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+    }
+
+    .carousel-slide-item {
+        min-width: 100%;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .carousel-img-box {
+        width: 100%;
+        aspect-ratio: 4/3;
+        background: var(--border);
+        overflow: hidden;
+    }
+
+    .carousel-img-box img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+        display: block;
+    }
+
+    .carousel-content-box {
+        padding: 25px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+
+    .carousel-content-box h3 {
+        font-size: 1.35rem;
+        margin-bottom: 6px;
+    }
+
+    .carousel-meta {
+        font-size: 0.8rem;
+        font-weight: 600;
+        color: var(--primary);
+        margin-bottom: 10px;
+        display: flex;
+        align-items: center;
+        gap: 6px;
+    }
+
+    .carousel-content-box p {
+        font-size: 0.86rem;
+        margin-bottom: 12px;
+    }
+
+    .carousel-controls {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        position: absolute;
+        top: 50%;
+        left: 12px;
+        right: 12px;
+        transform: translateY(-50%);
+        pointer-events: none;
+    }
+
+    .carousel-btn {
+        width: 38px;
+        height: 38px;
+        border-radius: 50%;
+        background: rgba(15, 23, 42, 0.75);
+        color: #fff;
+        border: none;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        pointer-events: auto;
+        transition: var(--transition);
+        font-size: 0.85rem;
+    }
+
+    .carousel-btn:hover {
+        background: var(--primary);
+    }
+
+    .carousel-dots {
+        display: flex;
+        justify-content: center;
+        gap: 6px;
+        margin-top: 14px;
+    }
+
+    .dot {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: var(--border);
+        cursor: pointer;
+        transition: var(--transition);
+    }
+
+    .dot.active {
+        background: var(--primary);
+        width: 20px;
+        border-radius: 4px;
+    }
+
+    /* ==========================================================
+       [SECTION 11: PATIENT GALLERY]
+       ========================================================== */
+    .gallery {
+        background: var(--background);
     }
 
     .gallery-grid {
         display: grid;
         grid-template-columns: repeat(4, 1fr);
-        gap: 20px;
+        gap: 14px;
+        margin-bottom: 22px;
     }
 
     .gallery-item {
         position: relative;
         overflow: hidden;
         border-radius: var(--radius);
-        height: 260px;
         box-shadow: var(--shadow-sm);
+        background: var(--white);
+        border: 1px solid var(--border);
+        display: flex;
+        flex-direction: column;
+    }
+
+    .gallery-img-wrapper {
+        width: 100%;
+        aspect-ratio: 4/3;
+        overflow: hidden;
+        background: var(--border);
     }
 
     .gallery-item img {
         width: 100%;
         height: 100%;
         object-fit: cover;
-        transition: transform 0.5s ease;
+        object-position: center;
+        display: block;
     }
 
-    .gallery-item:hover img {
-        transform: scale(1.1);
+    .gallery-details {
+        padding: 10px 12px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
     }
 
-    .gallery-overlay {
-        position: absolute;
-        inset: 0;
-        background: rgba(62, 39, 35, 0.6);
+    .gallery-details h4 {
+        font-size: 0.84rem;
+        color: var(--dark);
+        margin-bottom: 2px;
+    }
+
+    .gallery-details p {
+        font-size: 0.72rem;
+        opacity: 0.8;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    /* ==========================================================
+       [SECTION 12: CLIENT TESTIMONIALS]
+       ========================================================== */
+    .testimonials {
+        background: var(--white);
+    }
+
+    .reviews-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 16px;
+    }
+
+    .review-card {
+        background: var(--background);
+        padding: 20px;
+        border-radius: var(--radius);
+        box-shadow: var(--shadow-sm);
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        border: 1px solid var(--border);
+    }
+
+    .review-stars {
+        color: #F59E0B;
+        margin-bottom: 6px;
+        font-size: 0.8rem;
+    }
+
+    .review-card p {
+        font-style: italic;
+        font-size: 0.84rem;
+        margin-bottom: 12px;
+    }
+
+    .reviewer-info h4 {
+        font-size: 0.88rem;
+        color: var(--dark);
+    }
+
+    .reviewer-info span {
+        font-size: 0.72rem;
+        opacity: 0.7;
+    }
+
+    /* ==========================================================
+       [SECTION 13: BOOK APPOINTMENT & CONTACT FORM]
+       ========================================================== */
+    .contact {
+        background: var(--background);
+    }
+
+    .contact-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 25px;
+        align-items: stretch;
+    }
+
+    .contact-left-col {
+        display: flex;
+        flex-direction: column;
+        gap: 14px;
+    }
+
+    .address-line-card {
         display: flex;
         align-items: center;
-        justify-content: center;
-        opacity: 0;
-        transition: var(--transition);
+        gap: 12px;
+        background: var(--white);
+        padding: 14px 16px;
+        border-radius: var(--radius);
+        box-shadow: var(--shadow-sm);
+        border: 1px solid var(--border);
     }
 
-    .gallery-item:hover .gallery-overlay {
-        opacity: 1;
+    .address-line-card i {
+        font-size: 1.05rem;
+        color: var(--primary);
     }
 
-    .gallery-overlay span {
-        color: #fff;
-        font-weight: 600;
-        font-size: 1.1rem;
-        border: 2px solid rgba(255, 255, 255, 0.8);
-        padding: 8px 16px;
-        border-radius: 999px;
-    }
-
-    /*==================================================
-  CONTACT SECTION
-==================================================*/
-.contact {
-    background: var(--background);
-}
-
-/* Contact Details + Map */
-.contact-top {
-    display: grid;
-    grid-template-columns: 380px 1fr;
-    gap: 35px;
-    align-items: stretch;
-    margin-bottom: 35px;
-}
-
-/* Left Column */
-.contact-info-column {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-}
-
-/* Contact Card */
-.contact-card {
-    display: flex;
-    align-items: flex-start;
-    gap: 18px;
-    background: var(--white);
-    padding: 22px;
-    border-radius: var(--radius);
-    box-shadow: var(--shadow-sm);
-}
-
-body.dark-mode .contact-card {
-    background: #231B18;
-}
-
-.contact-card i {
-    font-size: 1.4rem;
-    color: var(--primary);
-    margin-top: 4px;
-}
-
-.contact-card h3 {
-    margin-bottom: 5px;
-    font-size: 1rem;
-}
-
-.contact-card p {
-    color: var(--text);
-    line-height: 1.6;
-}
-
-/* Address & Phone Links */
-.contact-card a {
-    color: inherit;
-    text-decoration: none;
-    transition: var(--transition);
-}
-
-.contact-card a:hover {
-    color: var(--primary);
-    text-decoration: underline;
-}
-
-/* Google Map */
-.map-box {
-    height: 100%;
-    min-height: 320px;
-    overflow: hidden;
-    border-radius: var(--radius);
-    box-shadow: var(--shadow);
-    border: 1px solid var(--border);
-}
-
-.map-box iframe {
-    width: 100%;
-    height: 100%;
-    border: none;
-}
-
-/* Emergency Banner */
-.emergency-box {
-    background: #FFF5F5;
-    border-left: 6px solid #E53935;
-    border-radius: var(--radius);
-    padding: 20px 25px;
-    margin-bottom: 35px;
-    text-align: center;
-    font-size: 1rem;
-    font-weight: 600;
-    box-shadow: var(--shadow-sm);
-}
-
-.emergency-box i {
-    color: #E53935;
-    margin-right: 8px;
-}
-
-.emergency-box a {
-    color: #E53935;
-    font-weight: 700;
-    text-decoration: none;
-}
-
-.emergency-box a:hover {
-    text-decoration: underline;
-}
-
-body.dark-mode .emergency-box {
-    background: #2A1B1B;
-    border-left-color: #FF6B6B;
-}
-
-/* Contact Form */
-.contact-form {
-    background: var(--white);
-    padding: 35px 40px;
-    border-radius: var(--radius);
-    box-shadow: var(--shadow);
-}
-
-body.dark-mode .contact-form {
-    background: #231B18;
-}
-
-.form-row {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 18px;
-}
-
-.form-group {
-    margin-bottom: 18px;
-}
-
-.form-group input,
-.form-group select,
-.form-group textarea {
-    width: 100%;
-    padding: 15px 18px;
-    border: 1px solid var(--border);
-    border-radius: 12px;
-    background: var(--background);
-    color: var(--dark);
-    font-size: 0.95rem;
-    outline: none;
-    transition: var(--transition);
-}
-
-.form-group textarea {
-    min-height: 120px;
-    resize: vertical;
-}
-
-.form-group input:focus,
-.form-group select:focus,
-.form-group textarea:focus {
-    border-color: var(--primary);
-    box-shadow: 0 0 0 4px rgba(255,112,67,.15);
-}
-
-body.dark-mode .form-group input,
-body.dark-mode .form-group select,
-body.dark-mode .form-group textarea {
-    background: #181210;
-    border-color: rgba(255,255,255,.08);
-    color: #FFF3E0;
-}
-
-.form-disclaimer {
-    text-align: center;
-    margin-top: 15px;
-    font-size: .85rem;
-    opacity: .8;
-}
-
-/* Mobile */
-@media (max-width: 900px) {
-
-    .contact-top {
-        grid-template-columns: 1fr;
+    .address-line-card p {
+        font-size: 0.86rem;
+        font-weight: 500;
     }
 
     .map-box {
-        min-height: 280px;
+        width: 100%;
+        flex-grow: 1;
+        min-height: 220px;
+        border-radius: var(--radius);
+        overflow: hidden;
+        box-shadow: var(--shadow-sm);
+        border: 1px solid var(--border);
     }
 
-    .form-row {
-        grid-template-columns: 1fr;
+    .map-box iframe {
+        width: 100%;
+        height: 100%;
+        border: 0;
     }
 
     .contact-form {
-        padding: 25px;
-    }
-
-    .emergency-box {
-        font-size: .95rem;
-        padding: 18px;
-    }
-
-}
-    /*==================================================
-    SLIM FOOTER
-==================================================*/
-
-footer {
-    background: #FFF3EC;
-    color: #5D4037;
-    padding: 15px 0 10px;
-    position: relative;
-    overflow: hidden;
-}
-
-body.dark-mode footer {
-    background: #0F0A09;
-}
-
-.footer-content {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 20px;
-    flex-wrap: wrap;
-    position: relative;
-    z-index: 2;
-}
-
-.footer-content p {
-    margin: 0;
-    font-size: 0.9rem;
-    line-height: 1.5;
-}
-
-.footer-content i {
-    color: var(--primary);
-    margin: 0 5px 0 10px;
-}
-
-.footer-content i:first-child {
-    margin-left: 0;
-}
-
-.social-links {
-    display: flex;
-    gap: 10px;
-}
-
-.social-links a {
-    width: 36px;
-    height: 36px;
-    border-radius: 50%;
-    background: rgba(255, 112, 67, 0.1);
-    color: var(--primary);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: var(--transition);
-}
-
-.social-links a:hover {
-    background: var(--primary);
-    color: #fff;
-    transform: translateY(-4px);
-}
-
-.footer-bottom {
-    text-align: center;
-    padding-top: 10px;
-    margin-top: 10px;
-    border-top: 1px solid rgba(93, 64, 55, 0.08);
-    position: relative;
-    z-index: 2;
-}
-
-body.dark-mode .footer-bottom {
-    border-color: rgba(255, 255, 255, 0.06);
-}
-
-.footer-bottom p {
-    margin: 0;
-    font-size: 0.85rem;
-}
-
-@media (max-width: 768px) {
-    .footer-content {
+        background: var(--white);
+        padding: 22px;
+        border-radius: var(--radius);
+        box-shadow: var(--shadow-sm);
+        display: flex;
         flex-direction: column;
+        justify-content: center;
+        border: 1px solid var(--border);
+    }
+
+    .form-row {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+    }
+
+    .form-group {
+        margin-bottom: 10px;
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+        width: 100%;
+        padding: 9px 13px;
+        border: 1px solid var(--border);
+        border-radius: 8px;
+        background: var(--background);
+        color: var(--dark);
+        font-size: 0.84rem;
+        outline: none;
+        transition: var(--transition);
+    }
+
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+        border-color: var(--primary);
+        box-shadow: 0 0 0 3px rgba(2, 132, 199, 0.12);
+    }
+
+    .form-group textarea {
+        min-height: 55px;
+        resize: vertical;
+    }
+
+    .form-disclaimer {
+        font-size: 0.72rem;
         text-align: center;
+        margin-top: 8px;
+        opacity: 0.75;
     }
 
-    .footer-content p {
-        line-height: 1.8;
+    /* ==========================================================
+       [SECTION 14: FOOTER]
+       ========================================================== */
+    footer {
+        background: #0F172A;
+        color: #94A3B8;
+        padding: 14px 0;
+        border-top: 1px solid rgba(255, 255, 255, 0.06);
     }
-}
-.address-link {
-    color: inherit;
-    text-decoration: none;
-    transition: color 0.3s ease;
-}
 
-.address-link:hover {
-    color: var(--primary);
-    text-decoration: underline;
-}
-    /*==================================================
-      SCROLL TO TOP BUTTON
-    ==================================================*/
+    .footer-flex {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-size: 0.8rem;
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+
+    .footer-left p {
+        color: #94A3B8;
+        margin: 0;
+    }
+
+    .footer-right {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+    }
+
+    .footer-contact-links {
+        display: flex;
+        gap: 12px;
+        align-items: center;
+    }
+
+    .footer-contact-links a {
+        color: #CBD5E1;
+        font-weight: 500;
+        display: inline-flex;
+        align-items: center;
+        gap: 5px;
+    }
+
+    .footer-contact-links a:hover {
+        color: var(--primary);
+    }
+
+    .footer-socials {
+        display: flex;
+        gap: 12px;
+    }
+
+    .footer-socials a {
+        color: #94A3B8;
+        font-size: 0.86rem;
+        transition: var(--transition);
+    }
+
+    .footer-socials a:hover {
+        color: var(--primary);
+    }
+
+    /* Scroll to Top Button */
     #scrollTopBtn {
         position: fixed;
-        right: 30px;
-        bottom: 30px;
-        width: 50px;
-        height: 50px;
+        right: 18px;
+        bottom: 18px;
+        width: 38px;
+        height: 38px;
         border: none;
         border-radius: 50%;
-        background: linear-gradient(135deg, var(--primary), var(--secondary));
+        background: var(--primary);
         color: #fff;
-        font-size: 1.1rem;
+        font-size: 0.85rem;
         cursor: pointer;
         display: flex;
         align-items: center;
@@ -820,8 +946,8 @@ body.dark-mode .footer-bottom {
         box-shadow: var(--shadow);
         opacity: 0;
         visibility: hidden;
-        transform: translateY(20px);
-        transition: all 0.35s ease;
+        transform: translateY(15px);
+        transition: all 0.3s ease;
         z-index: 999;
     }
 
@@ -831,66 +957,45 @@ body.dark-mode .footer-bottom {
         transform: translateY(0);
     }
 
-    #scrollTopBtn:hover {
-        transform: translateY(-5px);
-    }
-
-    /*==================================================
-      RESPONSIVE MEDIA QUERIES
-    ==================================================*/
+    /* ==========================================================
+       [SECTION 15: RESPONSIVE MEDIA QUERIES]
+       ========================================================== */
     @media (max-width: 992px) {
-        .hero-grid,
-        .about-grid,
         .contact-grid {
             grid-template-columns: 1fr;
-            gap: 40px;
+            gap: 24px;
         }
-        .hero-content {
-            text-align: center;
-        }
-        .hero-buttons,
-        .hero-content p {
-            margin-left: auto;
-            margin-right: auto;
-        }
-        .services-grid {
-            grid-template-columns: repeat(2, 1fr);
-        }
+        .services-grid,
+        .reviews-grid,
         .gallery-grid {
             grid-template-columns: repeat(2, 1fr);
         }
-        .footer-grid-slim {
+        .carousel-slide-item {
             grid-template-columns: 1fr;
-            text-align: center;
-            gap: 25px;
-        }
-        .footer-brand {
-            flex-direction: column;
-        }
-        .footer-contact-slim ul {
-            align-items: center;
-        }
-        .social-links {
-            justify-content: center;
         }
     }
 
     @media (max-width: 768px) {
+        .top-bar {
+            font-size: 0.74rem;
+            padding: 6px 10px;
+        }
+        header {
+            top: 52px;
+        }
         .nav-links {
             position: fixed;
-            top: 80px;
+            top: 114px;
             left: -100%;
             width: 100%;
-            height: calc(100vh - 80px);
+            height: calc(100vh - 114px);
             background: var(--background);
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            transition: 0.4s ease;
+            transition: 0.35s ease;
             box-shadow: var(--shadow);
-        }
-        body.dark-mode .nav-links {
-            background: #181210;
+            gap: 14px;
         }
         .nav-links.active {
             left: 0;
@@ -899,34 +1004,62 @@ body.dark-mode .footer-bottom {
             display: block;
         }
         .services-grid,
+        .reviews-grid,
         .gallery-grid {
             grid-template-columns: 1fr;
-        }
-        .hero-content h1 {
-            font-size: 2.5rem;
         }
         .form-row {
             grid-template-columns: 1fr;
             gap: 0;
+        }
+        .footer-flex {
+            flex-direction: column;
+            text-align: center;
+            gap: 8px;
+        }
+        .footer-right {
+            flex-direction: column;
+            gap: 6px;
+        }
+        .hero h1 {
+            font-size: 2.1rem;
         }
     }
     </style>
 </head>
 <body>
 
-    <!-- Header & Navigation -->
+    <!-- TOP EMERGENCY & TIMINGS BAR -->
+    <div class="top-bar">
+        <div class="top-bar-container">
+            <div class="emergency-badge">
+                <span class="blinking-dot"></span>
+                <span>Emergency Hotline: <a href="tel:03029468953">0302-9468953</a></span>
+            </div>
+            <div class="clinic-timings">
+                <i class="fa-regular fa-clock"></i>
+                <span>Mon - Sun: 11:00 AM - 10:00 PM</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- CLEAN NAVIGATION BAR -->
     <header>
         <div class="container nav-container">
             <a href="#home" class="logo">
-                <img src="logo.png" alt="Dr. Fahim Pet Clinic Logo" onerror="this.src='https://img.icons8.com/color/96/pet-commands-collie.png'">
-                <span>Dr. Fahim Pet Clinic</span>
+                <img src="fahim.jpeg" alt="Clinic Logo">
+                <span>Dr Fahim Pets Clinic</span>
             </a>
             <ul class="nav-links">
                 <li><a href="#home" class="active">Home</a></li>
                 <li><a href="#about">About</a></li>
                 <li><a href="#services">Services</a></li>
-                <li><a href="#gallery">Gallery</a></li>
-                <li><a href="#contact">Book Appointment</a></li>
+                <li><a href="#boarding">Boarding</a></li>
+                <li><a href="#grooming">Grooming</a></li>
+                <li><a href="#gallery">Patient Gallery</a></li>
+                <li><a href="#testimonials">Testimonials</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li><a href="#contact" class="btn btn-primary" style="padding: 6px 14px; font-size: 0.75rem; color: #fff;">Book Appointment</a></li>
             </ul>
             <div class="nav-actions">
                 <button id="themeToggle" class="theme-toggle" aria-label="Toggle Dark Mode">
@@ -939,312 +1072,368 @@ body.dark-mode .footer-bottom {
         </div>
     </header>
 
-    <!-- Home Section -->
+    <!-- COMPACT HERO BACKGROUND CAROUSEL BANNER -->
     <section id="home" class="hero">
-        <div class="container hero-grid">
-            <div class="hero-content">
-                <span class="section-tag">Welcome to Expert Pet Care</span>
-                <h1>Compassionate Medical Care for Your <span>Beloved Pets</span></h1>
-                <p>Premium veterinary healthcare dedicated to improving the lives of pets through advanced treatment, gentle handling, and modern medicine.</p>
-                <div class="hero-buttons">
-                    <a href="#contact" class="btn btn-primary"><i class="fa-solid fa-calendar-check"></i> Book Appointment</a>
-                    <a href="#services" class="btn btn-secondary">Explore Services</a>
-                </div>
-            </div>
-            <div class="hero-image">
-                <img src="https://images.unsplash.com/photo-1583337130417-3346a1be7dee?auto=format&fit=crop&q=80&w=800" alt="Happy pet at clinic">
+        <div class="hero-slide active" style="background-image: url('/reception.jpeg');"></div>
+        <div class="hero-slide" style="background-image: url('/opd.jpeg');"></div>
+        <div class="hero-slide" style="background-image: url('/ot.jpeg');"></div>
+
+        <div class="container">
+            <span class="section-tag">Welcome to Our Clinic</span>
+            <h1>Exceptional Healthcare Across <span>Reception, OPD & OT</span></h1>
+            <p>Providing state-of-the-art medical services and compassionate care around the clock.</p>
+            <div class="hero-buttons">
+                <a href="#contact" class="btn btn-primary">Book Appointment</a>
+                <a href="#services" class="btn btn-outline">Our Services</a>
             </div>
         </div>
     </section>
 
-    <!-- About Section -->
+    <!-- ABOUT OUR PRACTICE -->
     <section id="about" class="about">
-        <div class="container about-grid">
-            <div class="about-img">
-                <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&q=80&w=800" alt="Dr. Fahim with pets">
-            </div>
-            <div class="about-text">
-                <span class="section-tag">About Our Clinic</span>
-                <h2>Dedicated to Excellence in Veterinary Medicine</h2>
-                <p>At Dr. Fahim Pet Clinic, we treat your pets like our own family. With cutting-edge diagnostics, experienced professionals, and an environment built for comfort, we ensure your pets lead happy, healthy lives.</p>
+        <div class="container">
+            <div class="about-wrapper">
+                <div class="about-text-top section-header">
+                    <span class="section-tag">About Our Practice</span>
+                    <h2>Dedicated to Excellence in Animal Health</h2>
+                    <p>We combine advanced veterinary diagnostic tools with a gentle touch to ensure every animal receives premier attention and care.</p>
+                </div>
+                <div class="about-img-box">
+                    <img src="drfahim.jpeg" alt="Doctor examining patient">
+                </div>
                 <ul class="feature-list">
-                    <li><i class="fa-solid fa-circle-check"></i> Certified Veterinarians</li>
-                    <li><i class="fa-solid fa-circle-check"></i> 24/7 Emergency Support</li>
-                    <li><i class="fa-solid fa-circle-check"></i> Advanced Lab & Surgery</li>
-                    <li><i class="fa-solid fa-circle-check"></i> Friendly Handling</li>
+                    <li><i class="fa-solid fa-circle-check"></i> Licensed Veterinarians</li>
+                    <li><i class="fa-solid fa-circle-check"></i> Secure Pet Boarding</li>
+                    <li><i class="fa-solid fa-circle-check"></i> Monitored Grooming Services</li>
                 </ul>
             </div>
         </div>
     </section>
 
-    <!-- Services Section -->
+    <!-- MEDICAL SERVICES -->
     <section id="services" class="services">
         <div class="container">
             <div class="section-header">
-                <span class="section-tag">Our Medical Services</span>
-                <h2>What We Offer For Your Pets</h2>
-                <p>Comprehensive medical, surgical, and wellness packages customized for every stage of your pet's life.</p>
+                <span class="section-tag">Medical Services</span>
+                <h2>Compact Healthcare Solutions</h2>
+                <p>Streamlined medical, surgical, and wellness protocols for pets.</p>
             </div>
             <div class="services-grid">
                 <div class="service-card">
                     <div class="service-icon"><i class="fa-solid fa-stethoscope"></i></div>
-                    <h3>General Checkup</h3>
-                    <p>Routine health diagnostics, physical examinations, and wellness screening to catch conditions early.</p>
+                    <div class="service-content">
+                        <h3>General Checkup</h3>
+                        <p>Routine physical diagnostics & screenings.</p>
+                    </div>
                 </div>
                 <div class="service-card">
                     <div class="service-icon"><i class="fa-solid fa-syringe"></i></div>
-                    <h3>Vaccination</h3>
-                    <p>Essential shots and immunization schedules tailored to protect your pets from infectious diseases.</p>
+                    <div class="service-content">
+                        <h3>Vaccination</h3>
+                        <p>Core immunization schedules.</p>
+                    </div>
                 </div>
                 <div class="service-card">
-                    <div class="service-icon"><i class="fa-solid fa-scalpel"></i></div>
-                    <h3>Pet Surgery</h3>
-                    <p>Safe soft-tissue and orthopedic surgical procedures performed under advanced anesthesia and monitoring.</p>
+                    <div class="service-icon"><i class="fa-solid fa-scissors"></i></div>
+                    <div class="service-content">
+                        <h3>Major & Minor Surgery</h3>
+                        <p>Sterilization & soft tissue operations.</p>
+                    </div>
                 </div>
                 <div class="service-card">
                     <div class="service-icon"><i class="fa-solid fa-tooth"></i></div>
-                    <h3>Dental Care</h3>
-                    <p>Professional ultrasonic scaling, polishing, and comprehensive oral hygiene management.</p>
+                    <div class="service-content">
+                        <h3>Dental Care</h3>
+                        <p>Ultrasonic scaling & oral hygiene.</p>
+                    </div>
                 </div>
                 <div class="service-card">
                     <div class="service-icon"><i class="fa-solid fa-flask"></i></div>
-                    <h3>Laboratory Testing</h3>
-                    <p>In-house blood panels, urinalysis, and microscopic evaluations for rapid and accurate diagnosis.</p>
+                    <div class="service-content">
+                        <h3>Grooming</h3>
+                        <p>In-house Grooming.</p>
+                    </div>
                 </div>
                 <div class="service-card">
                     <div class="service-icon"><i class="fa-solid fa-kit-medical"></i></div>
-                    <h3>Emergency Care</h3>
-                    <p>Prompt, critical intervention and urgent care services available when your pet needs us most.</p>
+                    <div class="service-content">
+                        <h3>Emergency</h3>
+                        <p>Prompt critical intervention.</p>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Gallery Section -->
+    <!-- BOARDING AREA CAROUSEL -->
+    <section id="boarding" class="carousel-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Luxury Boarding Residents</span>
+                <h2>Current Guests & Care Details</h2>
+                <p>Browse active boarding occupants and tailored monitoring schedules.</p>
+            </div>
+            <div class="carousel-container" id="boardingCarousel">
+                <div class="carousel-track" id="boardingTrack">
+                    <div class="carousel-slide-item">
+                        <div class="carousel-img-box">
+                            <img src="https://images.unsplash.com/photo-1543466835-00a7907e9de1?auto=format&fit=crop&q=80&w=800" alt="Boarding dog Max">
+                        </div>
+                        <div class="carousel-content-box">
+                            <div>
+                                <span class="carousel-meta"><i class="fa-solid fa-dog"></i> Canine • Post-Op Recovery</span>
+                                <h3>Max (Golden Retriever)</h3>
+                                <p><strong>Duration:</strong> 5 Days &nbsp;|&nbsp; <strong>Reason:</strong> Post-operative orthopedic care & medicine timing.</p>
+                            </div>
+                            <a href="https://wa.me/+923029468953?text=Hello,%20I%20saw%20Max%20in%20Dog%20Boarding%20for%20post-op%20care%20and%20would%20like%20more%20details." target="_blank" class="btn btn-primary" style="width: fit-content; font-size: 0.8rem; padding: 7px 14px;"><i class="fa-brands fa-whatsapp"></i> Inquire via WhatsApp</a>
+                        </div>
+                    </div>
+                    <div class="carousel-slide-item">
+                        <div class="carousel-img-box">
+                            <img src="https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?auto=format&fit=crop&q=80&w=800" alt="Boarding cat Luna">
+                        </div>
+                        <div class="carousel-content-box">
+                            <div>
+                                <span class="carousel-meta"><i class="fa-solid fa-cat"></i> Feline • Family Out of Town</span>
+                                <h3>Luna (Persian Cat)</h3>
+                                <p><strong>Duration:</strong> 10 Days &nbsp;|&nbsp; <strong>Reason:</strong> Family vacation trip.</p>
+                            </div>
+                            <a href="https://wa.me/+923029468953?text=Hello,%20I%20saw%20Luna%20in%20Cat%20Boarding%20and%20would%20like%20to%20know%20more." target="_blank" class="btn btn-primary" style="width: fit-content; font-size: 0.8rem; padding: 7px 14px;"><i class="fa-brands fa-whatsapp"></i> Inquire via WhatsApp</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-controls">
+                    <button class="carousel-btn" id="boardPrev"><i class="fa-solid fa-chevron-left"></i></button>
+                    <button class="carousel-btn" id="boardNext"><i class="fa-solid fa-chevron-right"></i></button>
+                </div>
+            </div>
+            <div class="carousel-dots" id="boardingDots">
+                <span class="dot active" data-slide="0"></span>
+                <span class="dot" data-slide="1"></span>
+            </div>
+        </div>
+    </section>
+
+    <!-- GROOMING AREA -->
+    <section id="grooming" class="grooming-carousel-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Grooming Area</span>
+                <h2>Professional Grooming</h2>
+                <p>Certified health-screened services.</p>
+            </div>
+            <div class="carousel-container" id="groomingCarousel">
+                <div class="carousel-track" id="groomingTrack">
+                    <div class="carousel-slide-item">
+                        <div class="carousel-img-box">
+                            <img src="https://images.unsplash.com/photo-1548199973-03cce0bbc87b?auto=format&fit=crop&q=80&w=800" alt="Canine grooming Thor">
+                        </div>
+                        <div class="carousel-content-box">
+                            <div>
+                                <span class="carousel-meta"><i class="fa-solid fa-dna"></i> Canine Grooming Service</span>
+                                <h3>Champion Thor (German Shepherd)</h3>
+                                <p><strong>Breed:</strong> Purebred Working Line &nbsp;|&nbsp; <strong>Clearance:</strong> Full Coat Maintenance & Hygiene.</p>
+                            </div>
+                            <a href="https://wa.me/+923029468953?text=Hello,%20I%20would%20like%20to%20know%20more%20about%20Canine%20grooming%20services." target="_blank" class="btn btn-primary" style="width: fit-content; font-size: 0.8rem; padding: 7px 14px;"><i class="fa-brands fa-whatsapp"></i> Inquire via WhatsApp</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-controls">
+                    <button class="carousel-btn" id="groomingPrev"><i class="fa-solid fa-chevron-left"></i></button>
+                    <button class="carousel-btn" id="groomingNext"><i class="fa-solid fa-chevron-right"></i></button>
+                </div>
+            </div>
+            <div class="carousel-dots" id="groomingDots">
+                <span class="dot active" data-slide="0"></span>
+            </div>
+        </div>
+    </section>
+
+    <!-- PATIENT GALLERY -->
     <section id="gallery" class="gallery">
         <div class="container">
             <div class="section-header">
-                <span class="section-tag">Clinic Gallery</span>
-                <h2>Happy Patients & Modern Facility</h2>
-                <p>Take a look inside our clinic and meet some of our adorable furry patients.</p>
+                <span class="section-tag">Patient Gallery & Case Log</span>
+                <h2>Recent Successful Treatments</h2>
+                <p>Latest patient recoveries handled at our medical facility.</p>
             </div>
             <div class="gallery-grid">
                 <div class="gallery-item">
-                    <img src="https://images.unsplash.com/photo-1543466835-00a7907e9de1?auto=format&fit=crop&q=80&w=600" alt="Dog Patient">
-                    <div class="gallery-overlay"><span>Max</span></div>
+                    <div class="gallery-img-wrapper">
+                        <img src="https://images.unsplash.com/photo-1543466835-00a7907e9de1?auto=format&fit=crop&q=80&w=600" alt="Patient Bruno">
+                    </div>
+                    <div class="gallery-details">
+                        <h4>Bruno (Canine Soft Tissue)</h4>
+                        <p><strong>Action:</strong> Debridement</p>
+                    </div>
                 </div>
                 <div class="gallery-item">
-                    <img src="https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?auto=format&fit=crop&q=80&w=600" alt="Cat Patient">
-                    <div class="gallery-overlay"><span>Luna</span></div>
+                    <div class="gallery-img-wrapper">
+                        <img src="https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?auto=format&fit=crop&q=80&w=600" alt="Patient Mimi">
+                    </div>
+                    <div class="gallery-details">
+                        <h4>Mimi (Feline Dental)</h4>
+                        <p><strong>Action:</strong> Scaling</p>
+                    </div>
                 </div>
                 <div class="gallery-item">
-                    <img src="https://images.unsplash.com/photo-1537151625747-768eb6cf92b2?auto=format&fit=crop&q=80&w=600" alt="Puppy Care">
-                    <div class="gallery-overlay"><span>Buddy</span></div>
+                    <div class="gallery-img-wrapper">
+                        <img src="https://images.unsplash.com/photo-1537151625747-768eb6cf92b2?auto=format&fit=crop&q=80&w=600" alt="Patient Cooper">
+                    </div>
+                    <div class="gallery-details">
+                        <h4>Cooper (Puppy Wellness)</h4>
+                        <p><strong>Action:</strong> Vaccination</p>
+                    </div>
                 </div>
                 <div class="gallery-item">
-                    <img src="https://images.unsplash.com/photo-1533738363-b7f9aef128ce?auto=format&fit=crop&q=80&w=600" alt="Cat Checkup">
-                    <div class="gallery-overlay"><span>Milo</span></div>
+                    <div class="gallery-img-wrapper">
+                        <img src="https://images.unsplash.com/photo-1533738363-b7f9aef128ce?auto=format&fit=crop&q=80&w=600" alt="Patient Cleo">
+                    </div>
+                    <div class="gallery-details">
+                        <h4>Cleo (Sterilization)</h4>
+                        <p><strong>Action:</strong> Spay</p>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Contact & Booking Section -->
-    <!-- Contact & Booking Section -->
-<section id="contact" class="contact">
-    <div class="container">
-
-        <div class="section-header">
-            <span class="section-tag">Book An Appointment</span>
-            <h2>Schedule Your Visit via WhatsApp</h2>
-            <p>Complete the form below and we'll prepare your appointment request through WhatsApp instantly.</p>
-        </div>
-
-        <!-- Contact Details + Map -->
-        <div class="contact-top">
-
-            <!-- Contact Information -->
-            <div class="contact-info-column">
-
-                <div class="contact-card">
-                    <i class="fa-solid fa-location-dot"></i>
+    <!-- CLIENT TESTIMONIALS -->
+    <section id="testimonials" class="testimonials">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Testimonials</span>
+                <h2>Trusted by Local Pet Parents</h2>
+                <p>Genuine feedback from our valued clients in Peshawar.</p>
+            </div>
+            <div class="reviews-grid">
+                <div class="review-card">
                     <div>
-                        <h3>Location</h3>
-                        <p>
-                            <a href="https://maps.google.com/?q=34.0181946731699,71.53687867633528"
-                               target="_blank"
-                               rel="noopener noreferrer"
-                               class="address-link">
-                                Cantt Plaza, Warsak Rd, Near Askari 4, Peshawar, Pakistan
-                            </a>
-                        </p>
+                        <div class="review-stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                        <p>"Dr. Fahim provides exceptional care. Highly knowledgeable and caring with all pets brought into the clinic."</p>
+                    </div>
+                    <div class="reviewer-info">
+                        <h4>Muhammad Bilal</h4>
+                        <span>Verified Local Client</span>
+                    </div>
+                </div>
+                <div class="review-card">
+                    <div>
+                        <div class="review-stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                        <p>"Best clinic experience around Warsak Road. Very cooperative staff and clean environment for checkups."</p>
+                    </div>
+                    <div class="reviewer-info">
+                        <h4>Dr. Jawad Khan</h4>
+                        <span>Verified Medical Client</span>
+                    </div>
+                </div>
+                <div class="review-card">
+                    <div>
+                        <div class="review-stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                        <p>"Reliable emergency services and great medical advice. Saved our cat during a critical moment!"</p>
+                    </div>
+                    <div class="reviewer-info">
+                        <h4>Salman Afridi</h4>
+                        <span>Verified Pet Parent</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- BOOK APPOINTMENT & CONTACT SECTION -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Schedule Your Visit</span>
+                <h2>Direct WhatsApp Booking Form</h2>
+                <p>Fill out the fields below to transmit your appointment details instantly.</p>
+            </div>
+
+            <div class="contact-grid">
+                <div class="contact-left-col">
+                    <div class="address-line-card">
+                        <i class="fa-solid fa-location-dot"></i>
+                        <p>Cantt Plaza, Warsak Rd, Near Askari 4, Peshawar, Pakistan</p>
+                    </div>
+                    <div class="map-box">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3952.8991954540734!2d71.53687867633528!3d34.0181946731699!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6d54020c63ea8aab%3A0x3b5713fc2f19c067!2sDr%20Fahim%20Pets%20Clinic!5e1!3m2!1sen!2s!4v1786607556867!5m2!1sen!2s" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
                     </div>
                 </div>
 
-                <div class="contact-card">
-                    <i class="fa-solid fa-phone"></i>
-                    <div>
-                        <h3>Phone Number</h3>
-                        <p>
-                            <a href="tel:+923029468953">+92 302 9468953</a>
-                        </p>
+                <form class="contact-form" id="whatsappBookingForm">
+                    <div class="form-row">
+                        <div class="form-group"><input type="text" id="ownerName" placeholder="Owner Name *" required></div>
+                        <div class="form-group"><input type="tel" id="phoneNumber" placeholder="Phone Number *" required></div>
                     </div>
-                </div>
-
-                <div class="contact-card">
-                    <i class="fa-solid fa-clock"></i>
-                    <div>
-                        <h3>Working Hours</h3>
-                        <p>Monday – Saturday<br>9:00 AM – 8:00 PM</p>
+                    <div class="form-row">
+                        <div class="form-group"><input type="text" id="petName" placeholder="Pet Name *" required></div>
+                        <div class="form-group">
+                            <select id="petType" required>
+                                <option value="" disabled selected>Pet Type *</option>
+                                <option value="Cat">Cat</option>
+                                <option value="Dog">Dog</option>
+                                <option value="Bird">Bird</option>
+                                <option value="Other">Other</option>
+                            </select>
+                        </div>
                     </div>
-                </div>
-
-            </div>
-
-            <!-- Google Map -->
-            <div class="map-box">
-                <iframe
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3952.8991954540784!2d71.53687867633528!3d34.0181946731699!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6d54020c63ea8aab%3A0x3b5713fc2f19c067!2sDr%20Fahim%20Pets%20Clinic!5e1!3m2!1sen!2s!4v1785833171176!5m2!1sen!2s"
-                    allowfullscreen=""
-                    loading="lazy"
-                    referrerpolicy="strict-origin-when-cross-origin"
-                    style="border:0;width:100%;height:100%;">
-                </iframe>
-            </div>
-
-        </div>
-
-        <!-- Emergency Banner -->
-        <div class="emergency-box">
-            <i class="fa-solid fa-triangle-exclamation"></i>
-            <strong>Emergency?</strong>
-            If your pet is experiencing a life-threatening emergency,
-            <a href="tel:+923029468953">Call +92 302 9468953</a>
-            immediately.
-        </div>
-
-        <!-- WhatsApp Booking Form -->
-        <form class="contact-form" id="whatsappBookingForm">
-
-            <div class="form-row">
-                <div class="form-group">
-                    <input type="text" id="ownerName" placeholder="Owner Name *" required>
-                </div>
-
-                <div class="form-group">
-                    <input type="tel" id="phoneNumber" placeholder="Phone Number *" required>
-                </div>
-            </div>
-
-            <div class="form-row">
-                <div class="form-group">
-                    <input type="text" id="petName" placeholder="Pet Name *" required>
-                </div>
-
-                <div class="form-group">
-                    <select id="petType" required>
-                        <option value="" disabled selected>Select Pet Type *</option>
-                        <option>Dog</option>
-                        <option>Cat</option>
-                        <option>Bird</option>
-                        <option>Rabbit</option>
-                        <option>Horse</option>
-                        <option>Goat</option>
-                        <option>Cow</option>
-                        <option>Other</option>
-                    </select>
-                </div>
-            </div>
-
-            <div class="form-row">
-                <div class="form-group">
-                    <input type="text" id="breed" placeholder="Breed">
-                </div>
-
-                <div class="form-group">
-                    <input type="text" id="age" placeholder="Age">
-                </div>
-            </div>
-
-            <div class="form-group">
-                <select id="requiredService" required>
-                    <option value="" disabled selected>Select a Service *</option>
-                    <option>General Checkup</option>
-                    <option>Vaccination</option>
-                    <option>Surgery</option>
-                    <option>Dental Care</option>
-                    <option>Grooming</option>
-                    <option>Emergency Care</option>
-                    <option>Laboratory Tests</option>
-                    <option>Pet Pharmacy</option>
-                </select>
-            </div>
-<div class="form-row">
-    <div class="form-group">
-        <label for="preferredDate">Preferred Date</label>
-        <input type="date" id="preferredDate" required>
-    </div>
-
-    <div class="form-group">
-        <label for="preferredTime">Preferred Time</label>
-        <input type="time" id="preferredTime" required>
-    </div>
-</div>
-
-            <div class="form-group">
-                <textarea id="additionalNotes" placeholder="Additional Notes"></textarea>
-            </div>
-
-            <button type="submit" class="btn btn-primary" style="width:100%;justify-content:center;background:#25D366;">
-                <i class="fab fa-whatsapp"></i>
-                Book Appointment via WhatsApp
-            </button>
-
-            <p class="form-disclaimer">
-                Your information is not stored. Clicking the button above simply opens WhatsApp with your appointment request pre-filled.
-            </p>
-
-        </form>
-
-    </div>
-</section>
-
-   <!-- Ultra Slim Footer -->
-<footer class="footer-slim">
-    <div class="container">
-        <div class="footer-content">
-            <p>
-                <strong>Dr. Fahim Pet Clinic</strong> |
-<i class="fa-solid fa-location-dot"></i>
-<a href="https://maps.google.com/?q=34.0181946731699,71.53687867633528"
-   target="_blank"
-   rel="noopener noreferrer"
-   class="address-link">
-    Cantt Plaza, Warsak Rd, Peshawar
-</a> |                <i class="fa-solid fa-phone"></i> +92 302 9468953 |
-                <i class="fa-solid fa-clock"></i> Mon – Sat: 9AM – 8PM
-            </p>
-
-            <div class="social-links">
-                <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-                <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                <a href="#" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                    <div class="form-group">
+                        <select id="requiredService" required>
+                            <option value="" disabled selected>Select Service / Inquiry *</option>
+                            <option value="General Checkup">General Checkup</option>
+                            <option value="Vaccination">Vaccination</option>
+                            <option value="Spaying / Surgery">Major & Minor Surgery</option>
+                            <option value="Dental Care">Dental Care</option>
+                            <option value="Emergency Care">Emergency Care</option>
+                            <option value="Pet Boarding Inquiry">Pet Boarding Inquiry</option>
+                            <option value="Grooming Service Inquiry">Grooming Service Inquiry</option>
+                        </select>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group"><input type="date" id="preferredDate" required></div>
+                        <div class="form-group"><input type="time" id="preferredTime" required></div>
+                    </div>
+                    <div class="form-group">
+                        <textarea id="additionalNotes" placeholder="Additional Notes / Symptoms"></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary" style="width: 100%; justify-content: center;">
+                        <i class="fa-brands fa-whatsapp"></i> Book via WhatsApp
+                    </button>
+                    <p class="form-disclaimer">Opens WhatsApp with pre-formatted message payload.</p>
+                </form>
             </div>
         </div>
+    </section>
 
-        <div class="footer-bottom">
-            <p>&copy; 2026 Dr. Fahim Pet Clinic. All Rights Reserved.</p>
+    <!-- FOOTER -->
+    <footer>
+        <div class="container footer-flex">
+            <div class="footer-left">
+                <p>&copy; 2026 Dr. Fahim Pets Clinic. All rights reserved.</p>
+            </div>
+            <div class="footer-right">
+                <div class="footer-contact-links">
+                    <a href="tel:03029468953"><i class="fa-solid fa-phone"></i> 0302-9468953</a>
+                    <a href="https://wa.me/923029468953" target="_blank"><i class="fa-brands fa-whatsapp"></i> WhatsApp</a>
+                </div>
+                <div class="footer-socials">
+                    <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                </div>
+            </div>
         </div>
-    </div>
-</footer>
+    </footer>
 
-    <!-- Scroll To Top Button -->
-    <button id="scrollTopBtn" aria-label="Scroll to top">
-        <i class="fa-solid fa-arrow-up"></i>
-    </button>
+    <!-- Scroll to Top Button -->
+    <button id="scrollTopBtn" aria-label="Scroll to Top"><i class="fa-solid fa-arrow-up"></i></button>
 
-    <!-- JavaScript Functionality -->
+    <!-- JAVASCRIPT LOGIC -->
     <script>
+        const clinicData = {
+            phone: '923029468953'
+        };
+
         // Mobile Menu Toggle
         const menuBtn = document.getElementById('menuBtn');
         const navLinks = document.querySelector('.nav-links');
@@ -1256,118 +1445,119 @@ body.dark-mode .footer-bottom {
             icon.classList.toggle('fa-xmark');
         });
 
-        // Close mobile menu on link click
         document.querySelectorAll('.nav-links a').forEach(link => {
             link.addEventListener('click', () => {
                 navLinks.classList.remove('active');
-                const icon = menuBtn.querySelector('i');
-                icon.classList.add('fa-bars');
-                icon.classList.remove('fa-xmark');
+                if(menuBtn.querySelector('i')) {
+                    menuBtn.querySelector('i').className = 'fa-solid fa-bars';
+                }
             });
         });
 
-        // Dark / Light Theme Toggle
+        // Dark Mode Toggle
         const themeToggle = document.getElementById('themeToggle');
         const themeIcon = themeToggle.querySelector('i');
 
-        // Check for saved preference
         if (localStorage.getItem('theme') === 'dark') {
             document.body.classList.add('dark-mode');
-            themeIcon.classList.replace('fa-moon', 'fa-sun');
+            themeIcon.className = 'fa-solid fa-sun';
         }
 
         themeToggle.addEventListener('click', () => {
             document.body.classList.toggle('dark-mode');
-            if (document.body.classList.contains('dark-mode')) {
-                localStorage.setItem('theme', 'dark');
-                themeIcon.classList.replace('fa-moon', 'fa-sun');
-            } else {
-                localStorage.setItem('theme', 'light');
-                themeIcon.classList.replace('fa-sun', 'fa-moon');
-            }
+            const isDark = document.body.classList.contains('dark-mode');
+            localStorage.setItem('theme', isDark ? 'dark' : 'light');
+            themeIcon.className = isDark ? 'fa-solid fa-sun' : 'fa-solid fa-moon';
         });
 
-        // Scroll to Top Button functionality
+        // Hero Carousel Rotation
+        const heroSlides = document.querySelectorAll('.hero-slide');
+        let heroCurrentIndex = 0;
+
+        function rotateHeroSlides() {
+            if(heroSlides.length > 0) {
+                heroSlides[heroCurrentIndex].classList.remove('active');
+                heroCurrentIndex = (heroCurrentIndex + 1) % heroSlides.length;
+                heroSlides[heroCurrentIndex].classList.add('active');
+            }
+        }
+        setInterval(rotateHeroSlides, 4000);
+
+        // Carousel Logic Function for Boarding & Grooming
+        function setupCarousel(trackId, prevBtnId, nextBtnId, dotsContainerId) {
+            const track = document.getElementById(trackId);
+            if (!track) return;
+            const slides = track.querySelectorAll('.carousel-slide-item');
+            const prevBtn = document.getElementById(prevBtnId);
+            const nextBtn = document.getElementById(nextBtnId);
+            const dots = document.querySelectorAll(`#${dotsContainerId} .dot`);
+            let currentIndex = 0;
+            const totalSlides = slides.length;
+
+            function updateCarousel(index) {
+                track.style.transform = `translateX(-${index * 100}%)`;
+                dots.forEach((dot, idx) => dot.classList.toggle('active', idx === index));
+            }
+
+            if (nextBtn) nextBtn.addEventListener('click', () => {
+                currentIndex = (currentIndex + 1) % totalSlides;
+                updateCarousel(currentIndex);
+            });
+
+            if (prevBtn) prevBtn.addEventListener('click', () => {
+                currentIndex = (currentIndex - 1 + totalSlides) % totalSlides;
+                updateCarousel(currentIndex);
+            });
+
+            dots.forEach(dot => {
+                dot.addEventListener('click', () => {
+                    currentIndex = parseInt(dot.getAttribute('data-slide'));
+                    updateCarousel(currentIndex);
+                });
+            });
+
+            setInterval(() => {
+                currentIndex = (currentIndex + 1) % totalSlides;
+                updateCarousel(currentIndex);
+            }, 6000);
+        }
+
+        setupCarousel('boardingTrack', 'boardPrev', 'boardNext', 'boardingDots');
+        setupCarousel('groomingTrack', 'groomingPrev', 'groomingNext', 'groomingDots');
+
+        // Scroll to Top Button
         const scrollTopBtn = document.getElementById('scrollTopBtn');
-
         window.addEventListener('scroll', () => {
-            if (window.scrollY > 400) {
-                scrollTopBtn.classList.add('show');
-            } else {
-                scrollTopBtn.classList.remove('show');
-            }
-
-            // Active Nav Link Update on Scroll
-            const sections = document.querySelectorAll('section');
-            const navItems = document.querySelectorAll('.nav-links a');
-            
-            let current = '';
-            sections.forEach(section => {
-                const sectionTop = section.offsetTop;
-                if (window.scrollY >= sectionTop - 120) {
-                    current = section.getAttribute('id');
-                }
-            });
-
-            navItems.forEach(item => {
-                item.classList.remove('active');
-                if (item.getAttribute('href') === `#${current}`) {
-                    item.classList.add('active');
-                }
-            });
+            scrollTopBtn.classList.toggle('show', window.scrollY > 300);
         });
-
         scrollTopBtn.addEventListener('click', () => {
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth'
-            });
+            window.scrollTo({ top: 0, behavior: 'smooth' });
         });
 
-        // WhatsApp Appointment Form Handler
-const whatsappBookingForm = document.getElementById("whatsappBookingForm");
+        // WhatsApp Booking Form Trigger
+        document.getElementById('whatsappBookingForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const owner = document.getElementById('ownerName').value;
+            const phone = document.getElementById('phoneNumber').value;
+            const pet = document.getElementById('petName').value;
+            const type = document.getElementById('petType').value;
+            const service = document.getElementById('requiredService').value;
+            const date = document.getElementById('preferredDate').value;
+            const time = document.getElementById('preferredTime').value;
+            const notes = document.getElementById('additionalNotes').value || 'N/A';
 
-whatsappBookingForm.addEventListener("submit", (e) => {
-    e.preventDefault();
+            const msg = `Hello Dr Fahim Pets Clinic, I want to book an appointment.%0A%0A` +
+                        `*Owner Name:* ${owner}%0A` +
+                        `*Phone:* ${phone}%0A` +
+                        `*Pet Name:* ${pet}%0A` +
+                        `*Type:* ${type}%0A` +
+                        `*Service:* ${service}%0A` +
+                        `*Date:* ${date}%0A` +
+                        `*Time:* ${time}%0A` +
+                        `*Notes:* ${notes}`;
 
-    const ownerName = document.getElementById("ownerName").value.trim();
-    const phoneNumber = document.getElementById("phoneNumber").value.trim();
-    const petName = document.getElementById("petName").value.trim();
-    const petType = document.getElementById("petType").value;
-    const breed = document.getElementById("breed").value.trim() || "Not specified";
-    const age = document.getElementById("age").value.trim() || "Not specified";
-    const requiredService = document.getElementById("requiredService").value;
-    const preferredDate = document.getElementById("preferredDate").value;
-    const preferredTime = document.getElementById("preferredTime").value;
-    const additionalNotes = document.getElementById("additionalNotes").value.trim() || "None";
-
-    const clinicWhatsAppNumber = "+923029468953";
-
-    const message = `🐾 *Appointment Request*
-
-👤 *Owner Name:* ${ownerName}
-📞 *Phone Number:* ${phoneNumber}
-
-🐶 *Pet Details*
-• Name: ${petName}
-• Type: ${petType}
-• Breed: ${breed}
-• Age: ${age}
-
-🩺 *Required Service:* ${requiredService}
-
-📅 *Preferred Date:* ${preferredDate}
-🕒 *Preferred Time:* ${preferredTime}
-
-📝 *Additional Notes:*
-${additionalNotes}
-
-Thank you.`;
-
-    const whatsappURL = `https://wa.me/${clinicWhatsAppNumber}?text=${encodeURIComponent(message)}`;
-
-    window.open(whatsappURL, "_blank");
-});
+            window.open(`https://wa.me/${clinicData.phone}?text=${msg}`, '_blank');
+        });
     </script>
 </body>
 </html>
